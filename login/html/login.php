@@ -17,8 +17,8 @@
         <!--login form start-->
         <form class="login-form" action="" method="post">
             <i class="fas fa-user-circle"></i>
-            <input class="user-input" type="text" name="logeMail" placeholder="Email" required>
-            <input class="user-input" type="password" name="logpass" placeholder="Password" required>
+            <input class="user-input" type="text" name="eMail" placeholder="Email" required>
+            <input class="user-input" type="password" name="pass" placeholder="Password" required>
             <div class="options-01">
                 <label class="remember-me"><input type="checkbox" name="">Remember me</label>
                 <a href="#">Forgot your password?</a>
@@ -30,7 +30,7 @@
         </form>
         <!--login form end-->
         <!--signup form start-->
-        <form class="signup-form" action="" method="post">
+        <form class="signup-form" action="../php/register.php" method="post">
             <i class="fas fa-user-plus"></i>
             <input class="user-input" type="text" name="userName" placeholder="Username" required>
             <input class="user-input" type="email" name="regeMail" placeholder="Email Address" required>
