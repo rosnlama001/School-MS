@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once("../include/conn.php");
+require_once("../database/conn.php");
 if (!$_POST) {
-    require_once("../html/login.html");
+    require_once("../html/login.php");
 } else if (isset($_POST["logeMail"]) && isset($_POST["logpass"])) {
     $sql = "select * from user where eMail='{$_POST['logeMail']}' and pass='{$_POST['logpass']}';";
     $result = $mysqli->query($sql);
