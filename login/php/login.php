@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../database/conn.php");
+require_once("../../database/conn.php");
 if (!$_POST) {
     require_once("../html/login.php");
 } else if (isset($_POST["logeMail"]) && isset($_POST["logpass"])) {
@@ -8,7 +8,7 @@ if (!$_POST) {
     $result = $mysqli->query($sql);
     // $row = $result->fetch_assoc();
     if ($result->num_rows == 1) {
-        header("location:../html/profile.html");
+        header("location:../html/profile.php");
         echo ("loggd in");
     } else {
         echo ("login fail");
