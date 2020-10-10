@@ -87,8 +87,9 @@ body {
 .form .btn {
   outline: none;
   border: none;
-  width: 320px;
+  width: 310px;
   height: 55px;
+  margin-top: 5px;
   background: #4285f4;
   color: #fff;
   font-size: 18px;
@@ -113,6 +114,20 @@ body {
 
 .form .options-02 a {
   color: #4285f4;
+}
+.form .error{
+  /* border: 1px solid red; */
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 11px red;
+  color: red;
+  border-radius: 10px;
+}
+.form .success{
+  /* border: 1px solid red; */
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 11px green;
+  color: green;
+  border-radius: 10px;
 }
 
 /* Responsive CSS */
