@@ -1,2 +1,2 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "", "project");
+$mysqli = new mysqli("localhost", "root", "", "project") or die($mysqli);
