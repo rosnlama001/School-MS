@@ -7,5 +7,5 @@ get_safe_value($str){
 }
 
 $str="<p>hello</p>";
-get_safe_value($str)
+get_safe_value($str);
 ?>
