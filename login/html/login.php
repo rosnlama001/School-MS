@@ -1,3 +1,14 @@
+<?php $checked = "";
+$eMail = "";
+$pass = ""; ?>
+<?php
+if (isset($_COOKIE['eMail']) && isset($_COOKIE['pass'])) {
+    $eMail = $_COOKIE['eMail'];
+    $pass = $_COOKIE['pass'];
+    $checked = 'checked';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -15,18 +26,21 @@
     <!--form area start-->
     <div class="form">
         <!--login form start-->
-        <form class="login-form" action="" method="post">
+        <form class="login-form" action="../php/login.php" method="post">
             <i class="fas fa-user-circle"></i>
-            <input class="user-input" type="text" name="eMail" placeholder="Email" required>
-            <input class="user-input" type="password" name="pass" placeholder="Password" required>
+            <input class="user-input" type="text" name="eMail" placeholder="Email" value="<?php echo $eMail; ?>"
+                required>
+            <input class="user-input" type="password" name="pass" placeholder="Password" value="<?php echo $pass; ?>"
+                required>
             <div class="options-01">
-                <label class="remember-me"><input type="checkbox" name="">Remember me</label>
+                <label class="remember-me"><input type="checkbox" name="remem" <?php echo $checked ?>>Remember
+                    me</label>
                 <a href="#">Forgot your password?</a>
             </div>
             <div class="error">
-				<p>Not Registered? </p>
-			</div>
-            <input class="btn" type="submit" name="log" value="LOGIN">
+                <p>Not Registered? </p>
+            </div>
+            <input class="btn" type="submit" name="sub" value="LOGIN">
             <div class="options-02">
                 <p>Not Registered? <a href="#">Create an Account</a></p>
             </div>
