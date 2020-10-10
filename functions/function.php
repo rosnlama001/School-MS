@@ -13,4 +13,8 @@ include("../database/conn.php");
     $result=htmlentities($result);
     return $result;
     }
+function redirect($url){
+   return "<script>window.location.href='../index.html</script>'";
+}
+redirect("../index.html");
 ?>
