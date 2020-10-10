@@ -13,7 +13,4 @@ include("../database/conn.php");
     $result=htmlentities($result);
     return $result;
     }
-
-    
-
 ?>
