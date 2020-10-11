@@ -12,8 +12,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: #111; */
-  background: #ccc;
+  background: #111;
+  /* background: #ccc; */
 }
 
 .form {
@@ -115,14 +115,14 @@ body {
 .form .options-02 a {
   color: #4285f4;
 }
-.form .error{
+.form .error {
   /* border: 1px solid red; */
   margin-bottom: 10px;
   box-shadow: 1px 1px 11px red;
   color: red;
   border-radius: 10px;
 }
-.form .success{
+.form .success {
   /* border: 1px solid red; */
   margin-bottom: 10px;
   box-shadow: 1px 1px 11px green;

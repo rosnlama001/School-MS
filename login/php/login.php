@@ -20,7 +20,7 @@ if (!$_POST) {
             setcookie("eMail", $_POST["eMail"], time() -  30, "/");
             setcookie("pass", $_POST["pass"], time() -  30, "/");
         }
-        header("location:../html/dashboard.php");
+        header("location:../../teacher/php/home.php");
     } else {
         echo ("Your are not registered or dataserver not connected");
     }
