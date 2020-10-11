@@ -110,7 +110,8 @@ label #sidebar_btn{
   color: #fff;
   position: fixed;
   cursor: pointer;
-  left: 300px;
+  top: 20px;
+  left: 120px;
   font-size: 20px;
   margin: 5px 0;
   transition: 0.5s;
@@ -122,17 +123,17 @@ label #sidebar_btn:hover{
 }
 
 #check:checked ~ .sidebar{
-  left: -185px;
+  left: -180px;
+  overflow-y: auto;
 }
 
 #check:checked ~ .sidebar a span{
-  display: none;
-  overflow-y: auto;
+  display: none; 
 }
 
 #check:checked ~ .sidebar a{
   font-size: 20px;
-  margin-left: 165px;
+  margin-left: 155px;
   width: 100%;
 }
 
