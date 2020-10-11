@@ -1,5 +1,5 @@
 <?php
-include("../database/conn.php");
+// include("../database/conn.php");
 // to use this function 
 // include  file path
 // and 
@@ -7,10 +7,10 @@ include("../database/conn.php");
 // $eMail=get_safe_value($_POST['email']);
 // 
 // -------------------------------------------------------
-function get_safe_value($str)
+function get_safe_value($conn,$str)
 {
     global $mysqli;
-    $result = $mysqli->real_escape_string($str);
+    $result = $conn->real_escape_string($str);
     $result = htmlentities($result);
     return $result;
 }

@@ -28,6 +28,7 @@ header{
 .right_area i{
   color: rgb(205, 216, 57);
   margin: 5px;
+  cursor: pointer;
   
 }
 .right_area #bell{
@@ -43,7 +44,7 @@ header{
   left: 7px;
   background-color: red;
   border-radius: 50%;
-  width: auto;
+  width: 100%;
   height: auto;
   padding: 4px;
   text-align: center;

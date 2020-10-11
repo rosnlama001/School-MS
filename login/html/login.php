@@ -38,17 +38,18 @@ if (isset($_COOKIE['eMail']) && isset($_COOKIE['pass'])) {
                 <a href="../php/fpass.php">Forgot your password?</a>
             </div>
             <div class="error">
-                <p>Not Registered? </p>
+                <p>j ni  error msg</p>
             </div>
             <input class="btn" type="submit" name="sub" value="LOGIN">
             <div class="options-02">
-                <p>Not Registered? <a href="#">Create an Account</a></p>
+                <p>Not Registered? <a href="#form2">Create an Account</a></p>
             </div>
         </form>
         <!--login form end-->
         <!--signup form start-->
-        <form class="signup-form" action="../php/register.php" method="post">
+        <form class="signup-form" action="../php/register.php" method="post" id="form2">
             <i class="fas fa-user-plus"></i>
+            <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
             <input class="user-input" type="text" name="userName" placeholder="Username" required>
             <input class="user-input" type="email" name="regeMail" placeholder="Email Address" required>
             <input class="user-input" type="password" name="regpass" placeholder="Password" required>
