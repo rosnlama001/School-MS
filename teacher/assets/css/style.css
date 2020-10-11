@@ -54,7 +54,7 @@ header{
   position: fixed;
   left: 0;
   width: 250px;
-  height: calc(100% - 20%);
+  height: calc(100% - 15%);
   transition: 0.5s;
   transition-property: left;
   overflow-y: auto;
@@ -127,6 +127,7 @@ label #sidebar_btn:hover{
 
 #check:checked ~ .sidebar a span{
   display: none;
+  overflow-y: auto;
 }
 
 #check:checked ~ .sidebar a{
