@@ -13,6 +13,7 @@ include("../database/conn.php");
         $result=htmlentities($result);
         return $result;
         }
+
     function redirect($url){
     return header("location:{$url}");
     }
@@ -31,4 +32,5 @@ include("../database/conn.php");
         echo $otp;
     }
     // get_otp(8);
+
 ?>
