@@ -35,7 +35,7 @@ if (isset($_COOKIE['eMail']) && isset($_COOKIE['pass'])) {
             <div class="options-01">
                 <label class="remember-me"><input type="checkbox" name="remem" <?php echo $checked ?>>Remember
                     me</label>
-                <a href="#">Forgot your password?</a>
+                <a href="../php/fpass.php">Forgot your password?</a>
             </div>
             <div class="error">
                 <p>Not Registered? </p>
