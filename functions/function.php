@@ -7,14 +7,28 @@ include("../database/conn.php");
     // $eMail=get_safe_value($_POST['email']);
     // 
 // -------------------------------------------------------
- function get_safe_value($str){
-     global $mysqli;
-    $result=$mysqli -> real_escape_string($str);
-    $result=htmlentities($result);
-    return $result;
+    function get_safe_value($str){
+        global $mysqli;
+        $result=$mysqli -> real_escape_string($str);
+        $result=htmlentities($result);
+        return $result;
+        }
+    function redirect($url){
+    return header("location:{$url}");
     }
-function redirect($url){
-   return "<script>window.location.href='../index.html</script>'";
-}
-redirect("../index.html");
+    // redirect("../index.html");
+    function get_date(){
+        date_default_timezone_set("Asia/Tokyo");
+        $date=date("Y/m/d h:i:s");
+        echo $date;
+    }
+    // get_date();
+    function get_otp($val){
+        $otp = "";
+        for ($i = 0; $i < $val; $i++) {
+            $otp .= mt_rand(0, 9);
+        }
+        echo $otp;
+    }
+    // get_otp(8);
 ?>
