@@ -1,3 +1,8 @@
+<?php session_start(); 
+if(!isset($_SESSION['Islogin'])){
+  header("location:../../index.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -62,8 +67,10 @@
       </div>
       <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
       <a href="#"><i class="fas fa-cogs"></i><span>Course</span></a>
-      <a href="#"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
-      <a href="#"><i class="fas fa-clipboard"></i><span>All Attendence</span></a>
+       <?php if(isset($_SESSION['status']) && $_SESSION['status'] !='teacher' ){ ?>
+        <a href="#"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
+        <a href="#"><i class="fas fa-clipboard"></i><span>All Attendence</span></a>
+        <?php } ?>
       <a href="#"><i class="fas fa-user-graduate"></i><span>Student</span></a>
       <a href="#"><i class="fas fa-book"></i><span>Exam</span></a>
       <a href="#"><i class="fas fa-poll"></i><span>Result</span></a>
