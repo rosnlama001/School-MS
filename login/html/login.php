@@ -1,4 +1,13 @@
-
+<?php
+$cokEmail="";
+$cokPass="";
+$checked="";
+if(isset($_COOKIE['email']) && isset($_COOKIE['pass'])){
+    $cokEmail=$_COOKIE['email'];
+    $cokPass=$_COOKIE['pass'];
+    $checked="checked";
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -19,12 +28,12 @@
         <form class="login-form" action="../php/process.php" method="post">
             <i class="fas fa-user-circle"></i>
             <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
-            <input class="user-input" type="email" name="eMail" placeholder="Email" value=""
+            <input class="user-input" type="email" name="eMail" placeholder="Email" value="<?php echo $cokEmail?>"
                 required>
-            <input class="user-input" type="password" name="pass" placeholder="Password" value=""
+            <input class="user-input" type="password" name="pass" placeholder="Password" value="<?php echo $cokPass ?>"
                 required>
             <div class="options-01">
-                <label class="remember-me"><input type="checkbox" name="remem" >Remember
+                <label class="remember-me"><input type="checkbox" name="remem" <?php echo $checked; ?> >Remember
                     me</label>
                 <a href="forget_password.php">Forgot your password?</a>
             </div>
