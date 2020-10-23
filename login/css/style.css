@@ -117,18 +117,13 @@ body {
   color: #4285f4;
 }
 .form .error {
-  /* border: 1px solid red; */
   margin-bottom: 10px;
-  /* box-shadow: 1px 1px 11px red; */
   color: rgb(245, 63, 63);
-  /* border-radius: 10px; */
 }
 .form .success {
   /* border: 1px solid red; */
   margin-bottom: 10px;
-  box-shadow: 1px 1px 11px green;
   color: green;
-  border-radius: 10px;
 }
 /* forget_password start here */
  body .wrapper{
