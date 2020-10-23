@@ -1,14 +1,4 @@
-<?php $checked = "";
-$eMail = "";
-$pass = ""; ?>
-<?php
-if (isset($_COOKIE['eMail']) && isset($_COOKIE['pass'])) {
-    $eMail = $_COOKIE['eMail'];
-    $pass = $_COOKIE['pass'];
-    $checked = 'checked';
-}
 
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -28,12 +18,13 @@ if (isset($_COOKIE['eMail']) && isset($_COOKIE['pass'])) {
         <!--login form start-->
         <form class="login-form" action="../php/process.php" method="post">
             <i class="fas fa-user-circle"></i>
-            <input class="user-input" type="email" name="eMail" placeholder="Email" value="<?php echo $eMail; ?>"
+            <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
+            <input class="user-input" type="email" name="eMail" placeholder="Email" value=""
                 required>
-            <input class="user-input" type="password" name="pass" placeholder="Password" value="<?php echo $pass; ?>"
+            <input class="user-input" type="password" name="pass" placeholder="Password" value=""
                 required>
             <div class="options-01">
-                <label class="remember-me"><input type="checkbox" name="remem" <?php echo $checked ?>>Remember
+                <label class="remember-me"><input type="checkbox" name="remem" >Remember
                     me</label>
                 <a href="forget_password.php">Forgot your password?</a>
             </div>
@@ -51,7 +42,7 @@ if (isset($_COOKIE['eMail']) && isset($_COOKIE['pass'])) {
         <!--signup form start-->
         <form class="signup-form" action="../php/process.php" method="post" id="form2">
             <i class="fas fa-user-plus"></i>
-            <input class="user-input" type="text" name="status" value="<?php echo $_GET['status'] ?>">
+            <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
             <input class="user-input" type="text" name="userName" placeholder="Username" required>
             <input class="user-input" type="email" name="regeMail" placeholder="Email Address" required>
             <input class="user-input" type="password" name="regpass" placeholder="Password" required>
