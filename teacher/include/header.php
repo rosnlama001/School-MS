@@ -31,7 +31,7 @@ if(!isset($_SESSION['Islogin'])){
         <div class="right_area">
           <i class="fas fa-envelope fa-lg" aria-hidden="true" id="bell"><span>2</span></span></i>
           <i class="fas fa-bell fa-lg" aria-hidden="true" id="bell"><span>4</span></span></i>
-          <a href="#" class="logout_btn"><i class="fas fa-power-off"></i> Logout</a>
+          <a href="logout.php" class="logout_btn"><i class="fas fa-power-off"></i> Logout</a>
         </div>
       </div>
     </header>
@@ -63,7 +63,7 @@ if(!isset($_SESSION['Islogin'])){
     <div class="sidebar">
       <div class="profile_info">
         <img src="../assets/images/1.png" class="profile_image" alt="">
-        <h4>Teacher</h4>
+        <h4><?php if(isset($_SESSION['userName'])){echo $_SESSION['userName']; }?></h4>
       </div>
       <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
       <a href="#"><i class="fas fa-cogs"></i><span>Course</span></a>
