@@ -90,6 +90,7 @@ body {
   width: 320px;
   height: 55px;
   margin-top: 5px;
+  margin-left: 3px;
   background: #4285f4;
   color: #fff;
   font-size: 18px;
@@ -119,7 +120,7 @@ body {
   /* border: 1px solid red; */
   margin-bottom: 10px;
   box-shadow: 1px 1px 11px red;
-  color: red;
+  color: rgb(245, 63, 63);
   border-radius: 10px;
 }
 .form .success {
@@ -129,6 +130,78 @@ body {
   color: green;
   border-radius: 10px;
 }
+/* forget_password start here */
+ body .wrapper{
+  /* background-color: rgb(114, 32, 32); */
+  display: flex;
+  flex-direction: column;
+}
+.email_form{
+  color: rgb(85, 197, 141);
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+}
+.email_form label{
+  margin: 42px 0px;
+  position: relative;
+  top: 7px;
+  left: 0px;
+}
+
+.email_form .form_input{
+  width: 350px;
+  height: 35px;
+  background-color: lightcyan;
+  border: none;
+  border-radius: 5px;
+  outline:none;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding-left: 15px;
+}
+.email_form .form_input:focus{ 
+  box-shadow: 2px 2px 20px lightcoral;
+}
+.email_form .form_input::placeholder{
+  font-size: small;
+  color: rgb(32, 122, 212);
+  letter-spacing: 3px;
+}
+.email_btn .form_btn{
+  width: 300px;
+  height: 40px;
+  margin: 4px 25px;
+  background-color: limegreen;
+  border: none;
+  border-radius: 5px;
+  /* color: #222; */
+  color: #fff;
+  outline-color: #4285f4;
+}
+.email_btn .form_btn:hover{
+  box-shadow: 2px 2px 10px grey;
+  background-color: mediumspringgreen;
+  color: #111;
+  cursor: pointer;
+}
+.error{
+  margin: 5px 0px;
+  /* border: 1px solid red; */
+  width: 350px;
+  height: auto;
+  color: rgb(231, 106, 106);
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+#mail_form{
+/* display: none; */
+transition: all 0.5s linear;
+}
+#otp_form{
+display: none;
+transition: all 0.5s linear;
+}
+/* forget_password ends here */
 
 /* Responsive CSS */
 

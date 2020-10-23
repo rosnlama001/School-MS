@@ -26,30 +26,32 @@ if (isset($_COOKIE['eMail']) && isset($_COOKIE['pass'])) {
     <!--form area start-->
     <div class="form">
         <!--login form start-->
-        <form class="login-form" action="../php/login.php" method="post">
+        <form class="login-form" action="../php/process.php" method="post">
             <i class="fas fa-user-circle"></i>
-            <input class="user-input" type="text" name="eMail" placeholder="Email" value="<?php echo $eMail; ?>"
+            <input class="user-input" type="email" name="eMail" placeholder="Email" value="<?php echo $eMail; ?>"
                 required>
             <input class="user-input" type="password" name="pass" placeholder="Password" value="<?php echo $pass; ?>"
                 required>
             <div class="options-01">
                 <label class="remember-me"><input type="checkbox" name="remem" <?php echo $checked ?>>Remember
                     me</label>
-                <a href="../php/fpass.php">Forgot your password?</a>
+                <a href="forget_password.php">Forgot your password?</a>
             </div>
+            <?php if(isset($error)){ ?>
             <div class="error">
-                <p>j ni  error msg</p>
+                <p><?php echo $error;?></p>
             </div>
-            <input class="btn" type="submit" name="sub" value="LOGIN">
+            <?php } ?>
+            <input class="btn" type="submit" name="log" value="LOGIN">
             <div class="options-02">
                 <p>Not Registered? <a href="#form2">Create an Account</a></p>
             </div>
         </form>
         <!--login form end-->
         <!--signup form start-->
-        <form class="signup-form" action="../php/register.php" method="post" id="form2">
+        <form class="signup-form" action="../php/process.php" method="post" id="form2">
             <i class="fas fa-user-plus"></i>
-            <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
+            <input class="user-input" type="text" name="status" value="<?php echo $_GET['status'] ?>">
             <input class="user-input" type="text" name="userName" placeholder="Username" required>
             <input class="user-input" type="email" name="regeMail" placeholder="Email Address" required>
             <input class="user-input" type="password" name="regpass" placeholder="Password" required>
