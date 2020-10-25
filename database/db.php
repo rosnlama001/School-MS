@@ -85,11 +85,11 @@ class query extends Database{
        
         // die($sql);
         $result=$this->conn()->query($sql);
-        if($result==true){
-            echo "Data  successfully Inserted";
-        }else{
-            echo "Something Error in Inserting  data";
-        }
+        // if($result==true){
+        //     echo "Data  successfully Inserted";
+        // }else{
+        //     echo "Something Error in Inserting  data";
+        // }
     }
     public function  update_data($table,$condition="",$whereFiled="",$wherethis=""){
         $sql = "update $table set ";
@@ -109,11 +109,11 @@ class query extends Database{
         }
         // die($sql);
         $result=$this->conn()->query($sql);
-        if($result==true){
-            echo "Data  successfully Updated";
-        }else{
-            echo "Something Error in Updating  data";
-        }
+        // if($result==true){
+        //     echo "Data  successfully Updated";
+        // }else{
+        //     echo "Something Error in Updating  data";
+        // }
     }
     public function  delete_data($table,$whereFiled="",$wherethis=""){
         $sql = "delete from $table";
@@ -123,11 +123,11 @@ class query extends Database{
        
         // die($sql);
         $result=$this->conn()->query($sql);
-        if($result==true){
-            echo "Data  successfully Deleted";
-        }else{
-            echo "Something Error in Deleting  data";
-        }
+        // if($result==true){
+        //     echo "Data  successfully Deleted";
+        // }else{
+        //     echo "Something Error in Deleting  data";
+        // }
     }
 }
 

@@ -86,9 +86,15 @@ if (!$_POST) {
     }
 } else if (isset($_POST["sub"])) {
     $otp = $obj1->get_safe_value($_POST["otp"]);
-    $condi = array("otp" => "{$otp}");;
-    $row = $obj->get_data("user", "", $condi);
+    $condi_array = array("otp" => "{$otp}");;
+    $row = $obj->get_data("user", "", $condi_array);
     if (isset($row[0])) {
+        $date = get_date();
+        $timeOut = (strtotime($date) - strtotime($row["otpDate"]));
+        if ($timeOut < 30) {
+            redirect("../../index.php");
+            
+        }
         echo $row[0]["otp"];
         echo "OTP confirmed";
     }
