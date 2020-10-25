@@ -1,9 +1,4 @@
-<?php if(isset($red) && $red="illegal"){
-    ?>
-    <script>alert("see your eMail and Password,Try Again");</script>
-    <?php
-} 
-?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -51,5 +46,10 @@
         </section>
     </header>
 </body>
-
 </html>
+<?php if(isset($_GET['red'])){
+    ?>
+    <script>alert("see your eMail and Password,Illegal login Try Again");</script>
+    <?php
+} 
+?>

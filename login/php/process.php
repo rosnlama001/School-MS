@@ -40,7 +40,7 @@ if(!$_POST){
                 }
                 else{
                     $red="illegal";
-                    redirect("../../index.php");
+                    redirect("../../index.php?red={$red}");
                 }
 
         }else{
