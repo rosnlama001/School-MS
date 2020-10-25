@@ -1,3 +1,9 @@
+<?php if(isset($red) && $red="illegal"){
+    ?>
+    <script>alert("see your eMail and Password,Try Again");</script>
+    <?php
+} 
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
