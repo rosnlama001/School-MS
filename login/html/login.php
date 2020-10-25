@@ -37,9 +37,9 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['pass'])){
                     me</label>
                 <a href="../html/forget_password.php">Forgot your password?</a>
             </div>
-            <?php if(isset($error)){ ?>
+            <?php if(isset($_GET['error'])){ ?>
             <div class="error">
-                <p><?php echo $error;?></p>
+                <p><?php echo $error= "メールアドレスまたはパスワードを間違っています。";?></p>
             </div>
             <?php } ?>
             <input class="btn" type="submit" name="log" value="LOGIN">

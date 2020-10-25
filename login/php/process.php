@@ -42,15 +42,16 @@ if (!$_POST) {
                 redirect("../../index.php?red={$red}");
             }
         } else {
-            $error = "メールアドレスまたはパスワードを間違っています。";
-            require_once("../html/login.php");
+            // $error = "メールアドレスまたはパスワードを間違っています。";
+            redirect("../html/login.php?status={$urlstatus}&&error=error");
         }
     }
     if ($row == 0) {
-        $error = "メールアドレスまたはパスワードを間違っています。";
-        require_once("../html/login.php");
+        // $error = "メールアドレスまたはパスワードを間違っています。";
+        redirect("../html/login.php?status={$urlstatus}&&error=error");
     }
-} else if (isset($_POST['reg'])) {
+}
+ else if (isset($_POST['reg'])) {
     // status
     // userName
     // regeMail
