@@ -19,6 +19,6 @@ function get_otp($val)
     for ($i = 0; $i < $val; $i++) {
         $otp .= mt_rand(0, 9);
     }
-    echo $otp;
+    return $otp;
 }
     // get_otp(8);
