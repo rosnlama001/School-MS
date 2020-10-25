@@ -13,8 +13,14 @@ if(isset($_POST['femail'])){
     //  select * form user where eMail="$femail";
     
      if(isset($row[0])){
-            $ok='ok';
-            echo $ok;
+        $date = get_date();
+        $otp = get_otp(5);
+        mb_language("uni");
+        mb_internal_encoding("UTF-8");
+        $subject = "OTP確認";
+        $message = "OTPは" . $otp . "です。";
+        $mailFrom = "From: ADMIN<admin@sms.com>\r\n";
+        echo $date;
      }else{
          echo $ok = "bad";
      }

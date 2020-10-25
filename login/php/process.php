@@ -80,7 +80,7 @@ if (!$_POST) {
                 "userName,eMail,pass,status,otp,regDate,otpDate",
                 "$userName,$regeMail,$hashPass,$status,$otp,$date,$date"
             );
-            $msg = "メール確認のためOTPをメールで送信しました。";
+            $msg = "メール確認のためOTPをメールで送信しました。"; 
             require_once("../html/otp.php");
         }
     }
