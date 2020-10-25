@@ -49,28 +49,31 @@
 </body>
 </html>
     <?php 
-        if(isset($_GET['red'])=="illegal"){
+        if(isset($_GET['red'])){
     ?>
                 <script>
-                swal({
-            title: "DANGER !",
-            text: "Illegal LogIN!",
-            icon: "error",
-            button: "Try again",
-                     });
+                var err="<?php  echo $_GET['red'] ?>";
+                console.log(err);
+                if(err =="ok"){
+                    
+                        swal({
+                    title: "Good Job!",
+                    text: "succcessful",
+                    icon: "success",
+                    button: "Try again",
+                            });
+                    }
+                    else{
+                        swal({
+                    title: "DANGER !",
+                    text: "something wrong",
+                    icon: "error",
+                    button: "Try again",
+                            });
+                    }
             </script>
-    <?php
-        } else if(isset($_GET['red'])=="ok"){
+    <?php 
+        } 
     ?>
-                <script>
-                swal({
-            title: "Thank You!",
-            text: "successfully Register",
-            icon: "success",
-            button: "Awww",
-                    });
-
-            </script>
-    <?php
-      }
-    ?>
+         
+                
