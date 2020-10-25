@@ -7,6 +7,6 @@ unset($_SESSION['status']);
 unset($_SESSION['email']);
 unset($_SESSION['userName']);
 session_destroy();
-redirect("../../index.html");
+redirect("../../index.php");
 
 ?>

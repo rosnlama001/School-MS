@@ -23,7 +23,7 @@ if (!$_POST) {
         $_SESSION['pass'] = $row[0]['pass'];
         $_SESSION['userName'] = $row[0]['userName'];
         //  check hash password 
-        if ($pass = password_verify($pass, $row[0]['pass'])) {
+        if ($pass = password_verify($pass, $row[0]['pass']) && $row[0]['otp'] == "") {
             // rem
             if (isset($_POST['remem'])) {
                 setcookie("email", $row[0]['eMail'], time() + 60 * 60 * 24 * 365, "/");
@@ -38,7 +38,8 @@ if (!$_POST) {
             } else if ($row[0]['status'] == "student" && $row[0]['status'] == $urlstatus) {
                 redirect("../../student/php/home.php");
             } else {
-                redirect("../../index.html");
+                $red = "illegal";
+                redirect("../../index.php?red={$red}");
             }
         } else {
             $error = "メールアドレスまたはパスワードを間違っています。";
