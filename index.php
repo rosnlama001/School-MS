@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -47,9 +48,28 @@
     </header>
 </body>
 </html>
-<?php if(isset($_GET['red'])){
+    <?php 
+        if(isset($_GET['red'])=="illegal"){
     ?>
-    <script>alert("see your eMail and Password,Illegal login Try Again");</script>
+                <script>
+                swal({
+            title: "DANGER !",
+            text: "Illegal LogIN!",
+            icon: "error",
+            button: "Try again",
+                     });
+            </script>
     <?php
-} 
-?>
+        } else if(isset($_GET['red']=="ok"){
+    ?>
+                <script>
+                swal({
+            title: "Thank You!",
+            text: "successfully Register",
+            icon: "success",
+            button: "Awww",
+                    });
+            </script>
+    <?php
+      }
+    ?>

@@ -38,7 +38,7 @@
                     <input type="text" class="form_input" name="otp" id="otp" placeholder="確認コードを入力してください。">
                 </div>
                 <div class="error">
-                        <p> <p>
+                     <span id="femailError1"></span>
                 </div>
                 <div class="email_btn">
                 <input type="submit" class="form_btn" value="次" id="next_btn">
