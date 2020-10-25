@@ -10,7 +10,7 @@ function get_date()
 {
     date_default_timezone_set("Asia/Tokyo");
     $date = date("Y/m/d h:i:s");
-    echo $date;
+    return $date;
 }
 // get_date();
 function get_otp($val)
