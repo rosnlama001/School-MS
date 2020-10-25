@@ -50,8 +50,7 @@ if (!$_POST) {
         // $error = "メールアドレスまたはパスワードを間違っています。";
         redirect("../html/login.php?status={$urlstatus}&&error=error");
     }
-}
- else if (isset($_POST['reg'])) {
+} else if (isset($_POST['reg'])) {
     // status
     // userName
     // regeMail
@@ -93,8 +92,7 @@ if (!$_POST) {
         $date = get_date();
         $timeOut = (strtotime($date) - strtotime($row["otpDate"]));
         if ($timeOut < 30) {
-            redirect("../../index.php");
-            
+            redirect("../../index.php?red=OK");
         }
         echo $row[0]["otp"];
         echo "OTP confirmed";
