@@ -60,7 +60,7 @@
                      });
             </script>
     <?php
-        } else if(isset($_GET['red']=="ok"){
+        } else if(isset($_GET['red'])=="ok"){
     ?>
                 <script>
                 swal({
@@ -69,7 +69,7 @@
             icon: "success",
             button: "Awww",
                     });
-                    
+
             </script>
     <?php
       }
