@@ -92,7 +92,7 @@ if (!$_POST) {
         $date = get_date();
         $timeOut = (strtotime($date) - strtotime($row["otpDate"]));
         if ($timeOut < 30) {
-            redirect("../../index.php?red=OK");
+            redirect("../../index.php?red=ok");
         }
         echo $row[0]["otp"];
         echo "OTP confirmed";

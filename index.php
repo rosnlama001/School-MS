@@ -69,6 +69,7 @@
             icon: "success",
             button: "Awww",
                     });
+                    
             </script>
     <?php
       }
