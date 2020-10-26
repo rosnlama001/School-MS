@@ -15,7 +15,7 @@
         <!-- -------------------------------------------------------------- -->
         <!-- otp form starts here -->
         <div id="otp_form1">
-            <form id="forgetOtp">
+            <form id="forgetOtp" method="post">
                 <div class="email_form">
                     <?php if (isset($msg)) { ?>
                         <div class="success" style="color:green">

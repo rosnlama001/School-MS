@@ -80,21 +80,25 @@ if (!$_POST) {
                 "userName,eMail,pass,status,otp,regDate,otpDate",
                 "$userName,$regeMail,$hashPass,$status,$otp,$date,$date"
             );
-            $msg = "メール確認のためOTPをメールで送信しました。"; 
+            $msg = "メール確認のためOTPをメールで送信しました。";
             require_once("../html/otp.php");
         }
     }
 } else if (isset($_POST["sub"])) {
     $otp = $obj1->get_safe_value($_POST["otp"]);
-    $condi_array = array("otp" => "{$otp}");;
+    $condi_array = array("otp" => "{$otp}");
     $row = $obj->get_data("user", "", $condi_array);
     if (isset($row[0])) {
         $date = get_date();
-        $timeOut = (strtotime($date) - strtotime($row["otpDate"]));
-        if ($timeOut < 30) {
+        $timeOut = (strtotime($date) - strtotime($row[0]["otpDate"]));
+        if ($timeOut < 60) {
+            $condi_array = array("otp" => "", "otpDate" => "");
+            // update user set opt="$otp" date="" where otp=$opt;
+            $row = $obj->update_data("user", $condi_array, "otp", $otp);
             redirect("../../index.php?red=ok");
+        } else {
+            $row = $obj->update_data("user", "otp", $otp);
+            redirect("../../index.php?red=failed");
         }
-        echo $row[0]["otp"];
-        echo "OTP confirmed";
     }
 }

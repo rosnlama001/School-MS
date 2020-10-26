@@ -1,128 +1,134 @@
 <?php
-class Database{
-    private $server="localhost";
-    private $user="root";
-    private $password="";
-    private $dbname="project";
+class Database
+{
+    private $server = "localhost";
+    private $user = "root";
+    private $password = "";
+    private $dbname = "project";
 
-    protected function conn(){
-        $mysqli = new mysqli($this->server,$this->user,$this->password,$this->dbname) or die($mysqli);
+    protected function conn()
+    {
+        $mysqli = new mysqli($this->server, $this->user, $this->password, $this->dbname) or die($mysqli);
         return $mysqli;
     }
 }
-class sfunction extends Database{
+class sfunction extends Database
+{
     public function get_safe_value($str)
     {
         $result = $this->conn()->real_escape_string($str);
         $result = htmlentities($result);
         return $result;
     }
-
 }
-class query extends Database{
+class query extends Database
+{
     // tocheck the database connection
-        // public function try(){
-        // if($this->conn()){
-        //     echo "connected.<br>";
-        // }
-        // else{
-        //     echo "connection failes .<br>";
-        // }
-        // }
+    // public function try(){
+    // if($this->conn()){
+    //     echo "connected.<br>";
+    // }
+    // else{
+    //     echo "connection failes .<br>";
+    // }
+    // }
     // -------------------------
-    public function  get_data($table,$field="",$condition="",$order_by_field="",$order_updown=""){
+    public function  get_data($table, $field = "", $condition = "", $order_by_field = "", $order_updown = "")
+    {
         $sql = "select * from $table ";
-        if($field != ""){
-            $sql="select {$field} from {$table}";
-        }if($condition !=""){
-            $sql.= " where ";
-            $count =count($condition);
-            $i=0;
-            foreach($condition as $key => $value){
-                $sql.= " {$key} ='{$value}' ";
+        if ($field != "") {
+            $sql = "select {$field} from {$table}";
+        }
+        if ($condition != "") {
+            $sql .= " where ";
+            $count = count($condition);
+            $i = 0;
+            foreach ($condition as $key => $value) {
+                $sql .= " {$key} ='{$value}' ";
                 $i++;
-                if($i < $count){
-                    $sql.=" and ";
+                if ($i < $count) {
+                    $sql .= " and ";
                 }
             }
         }
-        if($order_by_field !="" && $order_updown !=""){
-            $sql.=" order by {$order_by_field} {$order_updown} ";
+        if ($order_by_field != "" && $order_updown != "") {
+            $sql .= " order by {$order_by_field} {$order_updown} ";
         }
         //  die($sql);
-        $result=$this->conn()->query($sql);
-        if($result->num_rows > 0){
-            $arr=array();
-            while($row=$result->fetch_assoc()){
-                $arr[]=$row;
-                
+        $result = $this->conn()->query($sql);
+        if ($result->num_rows > 0) {
+            $arr = array();
+            while ($row = $result->fetch_assoc()) {
+                $arr[] = $row;
             }
             // print_r($arr);
             return $arr;
-        }else{
+        } else {
             //  echo "No data found";
             return 0;
         }
     }
-    public function  insert_data($table,$field,$values){
+    public function  insert_data($table, $field, $values)
+    {
         $sql = "insert into $table";
-        if($field !="" && $values !="" ){
-            $sql.= "({$field})";
-            $array=explode(",",$values);
-            $count =count($array);
-            $i=0;
-            $sql.=" values(";
-            foreach($array as $value){
+        if ($field != "" && $values != "") {
+            $sql .= "({$field})";
+            $array = explode(",", $values);
+            $count = count($array);
+            $i = 0;
+            $sql .= " values(";
+            foreach ($array as $value) {
                 $i++;
-                $sql.=" '$value"; 
-                if($i < $count){
-                    $sql.="',";  
-                }   
+                $sql .= " '$value";
+                if ($i < $count) {
+                    $sql .= "',";
+                }
             }
-            $sql.="')";
-            
+            $sql .= "')";
         }
-       
+
         // die($sql);
-        $result=$this->conn()->query($sql);
+        $result = $this->conn()->query($sql);
         // if($result==true){
         //     echo "Data  successfully Inserted";
         // }else{
         //     echo "Something Error in Inserting  data";
         // }
     }
-    public function  update_data($table,$condition="",$whereFiled="",$wherethis=""){
+    public function  update_data($table, $condition = "", $whereFiled = "", $wherethis = "")
+    {
         $sql = "update $table set ";
-        if($condition !=""){
-            $count =count($condition);
-            $i=0;
-            foreach($condition as $key => $value){
-                $sql.= " {$key} ='{$value}' ";
+        if ($condition != "") {
+            $count = count($condition);
+            $i = 0;
+            foreach ($condition as $key => $value) {
+                $sql .= " {$key} ='{$value}' ";
                 $i++;
-                if($i < $count){
-                    $sql.=",";
+                if ($i < $count) {
+                    $sql .= ",";
                 }
             }
         }
-        if($whereFiled !="" && $wherethis !=""){
-            $sql.=" where {$whereFiled} = '{$wherethis}'";
+        if ($whereFiled != "" && $wherethis != "") {
+            $sql .= " where {$whereFiled} = '{$wherethis}'";
         }
         // die($sql);
-        $result=$this->conn()->query($sql);
+        $result = $this->conn()->query($sql);
         // if($result==true){
         //     echo "Data  successfully Updated";
         // }else{
         //     echo "Something Error in Updating  data";
         // }
     }
-    public function  delete_data($table,$whereFiled="",$wherethis=""){
+    public function  delete_data($table, $whereFiled = "", $wherethis = "")
+    {
         $sql = "delete from $table";
-        if($whereFiled !="" && $wherethis !=""){
-            $sql.=" where {$whereFiled} = '{$wherethis}'";
+        if ($whereFiled != "" && $wherethis != "") {
+            $sql .= " where {$whereFiled} = '{$wherethis}'";
         }
-       
+
         // die($sql);
-        $result=$this->conn()->query($sql);
+        $result = $this->conn()->query($sql);
         // if($result==true){
         //     echo "Data  successfully Deleted";
         // }else{
@@ -142,8 +148,3 @@ class query extends Database{
 // foreach($row as $list){
 //     echo $list['userName']." ".$list['eMail']." ".$list['pass']."<br>";
 // }
-
-
-
-
-?>
