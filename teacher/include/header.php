@@ -1,6 +1,6 @@
 <?php session_start(); 
 if(!isset($_SESSION['Islogin'])){
-  header("location:../../index.html");
+  header("location:../../index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -10,6 +10,7 @@ if(!isset($_SESSION['Islogin'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Management system</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/content.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
   </head>
@@ -39,7 +40,7 @@ if(!isset($_SESSION['Islogin'])){
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="1.png" class="mobile_profile_image" alt="">
+        <img src="../assets/images/1.png" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
@@ -49,7 +50,7 @@ if(!isset($_SESSION['Islogin'])){
         <a href="#"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
         <a href="#"><i class="fas fa-clipboard"></i><span>All Attendence</span></a>
         <?php } ?>
-        <a href="#"><i class="fas fa-user-graduate"></i><span>Student</span></a>
+        <a href="students.php"><i class="fas fa-user-graduate"></i><span>Student</span></a>
         <a href="#"><i class="fas fa-book"></i><span>Exam</span></a>
         <a href="#"><i class="fas fa-poll"></i><span>Result</span></a>
         <a href="#"><i class="fas fa-user"></i><span>Attendance</span></a>
@@ -65,13 +66,13 @@ if(!isset($_SESSION['Islogin'])){
         <img src="../assets/images/1.png" class="profile_image" alt="">
         <h4><?php if(isset($_SESSION['userName'])){echo $_SESSION['userName']; }?></h4>
       </div>
-      <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <a href="home.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
       <a href="#"><i class="fas fa-cogs"></i><span>Course</span></a>
        <?php if(isset($_SESSION['status']) && $_SESSION['status'] !='teacher' ){ ?>
         <a href="#"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
         <a href="#"><i class="fas fa-clipboard"></i><span>All Attendence</span></a>
         <?php } ?>
-      <a href="#"><i class="fas fa-user-graduate"></i><span>Student</span></a>
+      <a href="students.php"><i class="fas fa-user-graduate"></i><span>Student</span></a>
       <a href="#"><i class="fas fa-book"></i><span>Exam</span></a>
       <a href="#"><i class="fas fa-poll"></i><span>Result</span></a>
       <a href="#"><i class="fas fa-user"></i><span>Attendance</span></a>

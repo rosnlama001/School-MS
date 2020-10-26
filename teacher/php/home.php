@@ -1,3 +1,17 @@
 <?php include("../include/header.php"); ?>
-<p>this is only the demo text so write all program inside  this div</p>
+
+<div class="panel">
+    <div class="panel-row">
+        <div class="panel-head">
+            <h3>panel head</h3>
+            <a href="" class="addbtn"><i class="fas fa-plus"></i> Add Students</a>
+        </div>
+        <div class="panel-body">
+                <div style="overflow-x:auto;">
+                     this is home page  
+             </div>
+        </div>
+    </div>
+</div>
+
 <?php include("../include/footer.php"); ?>

@@ -189,10 +189,12 @@ label #sidebar_btn:hover{
 .mobile_nav{
   display: none;
 }
-
+.content .card{
+  position: relative;
+  padding-top: 20px;
+}
 .content .card p{
-  background: #fff;
-  padding: 15px;
+  padding: 2px;
   margin-bottom: 10px;
   font-size: 14px;
   opacity: 0.8;
@@ -223,6 +225,9 @@ label #sidebar_btn:hover{
   .mobile_nav{
     display: block;
     width: calc(100% - 0%);
+  }
+  .panel{
+    top: 10px;
   }
 
   .nav_bar{
@@ -281,7 +286,9 @@ label #sidebar_btn:hover{
   .active{
     display: block;
   }
+  
 }
+
 @media screen and (max-device-width: 416px){
   header{
     height: 93px;
@@ -289,4 +296,7 @@ label #sidebar_btn:hover{
   .nav_bar{
     margin-top: 133px;
   }
+  .panel{
+    top: 3px;
+    }
 }
