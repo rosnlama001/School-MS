@@ -65,7 +65,7 @@
                     }
                     else{
                         swal({
-                    title: "DANGER !",
+                    title: "wARNING",
                     text: "something wrong",
                     icon: "error",
                     button: "Try again",
