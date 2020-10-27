@@ -45,15 +45,15 @@ if(!isset($_SESSION['Islogin'])){
       </div>
       <div class="mobile_nav_items">
         <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-        <a href="#"><i class="fas fa-cogs"></i><span>Course</span></a>
+        <a href="course.php"><i class="fas fa-cogs"></i><span>Course</span></a>
         <?php if(isset($_SESSION['status']) && $_SESSION['status'] !='teacher' ){ ?>
-        <a href="#"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
+        <a href="teachers.php"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
         <a href="#"><i class="fas fa-clipboard"></i><span>All Attendence</span></a>
         <?php } ?>
         <a href="students.php"><i class="fas fa-user-graduate"></i><span>Student</span></a>
-        <a href="#"><i class="fas fa-book"></i><span>Exam</span></a>
+        <a href="exam.php"><i class="fas fa-book"></i><span>Exam</span></a>
         <a href="#"><i class="fas fa-poll"></i><span>Result</span></a>
-        <a href="#"><i class="fas fa-user"></i><span>Attendance</span></a>
+        <a href="attendence.php"><i class="fas fa-user"></i><span>Attendance</span></a>
         <a href="#"><i class="fas fa-yen-sign"></i><span>Fee Mangement</span></a>
         <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
         <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
@@ -67,15 +67,17 @@ if(!isset($_SESSION['Islogin'])){
         <h4><?php if(isset($_SESSION['userName'])){echo $_SESSION['userName']; }?></h4>
       </div>
       <a href="home.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-      <a href="#"><i class="fas fa-cogs"></i><span>Course</span></a>
+      <a href="course.php"><i class="fas fa-cogs"></i><span>Course</span></a>
        <?php if(isset($_SESSION['status']) && $_SESSION['status'] !='teacher' ){ ?>
-        <a href="#"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
+        <a href="teachers.php"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
         <a href="#"><i class="fas fa-clipboard"></i><span>All Attendence</span></a>
         <?php } ?>
       <a href="students.php"><i class="fas fa-user-graduate"></i><span>Student</span></a>
-      <a href="#"><i class="fas fa-book"></i><span>Exam</span></a>
+      <a href="exam.php"><i class="fas fa-book"></i><span>Exam</span></a>
       <a href="#"><i class="fas fa-poll"></i><span>Result</span></a>
-      <a href="#"><i class="fas fa-user"></i><span>Attendance</span></a>
+      <?php if(isset($_SESSION['status']) && $_SESSION['status'] !='admin' ){ ?>
+      <a href="attendence.php"><i class="fas fa-user"></i><span>Attendance</span></a>
+      <?php } ?>
       <a href="#"><i class="fas fa-yen-sign"></i><span>Fee Mangement</span></a>
       <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
       <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>

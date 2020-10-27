@@ -3,6 +3,22 @@
 <div class="panel">
     <div class="panel-row">
         <div class="panel-head">
+            <h3>my Attendance</h3>
+            <!-- <div class="line">
+            <a href="" class="addbtn" id="myBtn"><i class="fas fa-plus"></i> Add Students</a>
+            </div> -->
+        </div>
+     
+        <div class="panel-body">
+               Present :<input type="radio" name="aten" id=""><br>
+               Absence :<input type="radio" name="aten" id=""><br>
+        </div>
+    </div>
+</div>
+
+<div class="panel">
+    <div class="panel-row">
+        <div class="panel-head">
             <h3>Student Details</h3>
             <div class="line">
                 <select name="" id="filter">
@@ -18,25 +34,9 @@
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
-                <div class="modal-content" style="overflow-y:auto;"> 
-                <div class="modal-head">
-                    <h4>Student Details</h4>
-                    <span class="close">&times;</span>
-                </div> 
-                <div class="modal-body">
-                    <form action="" method="post">
-                        <div class="form_group">
-                            <label for="lname">Last Name</label>
-                            <input type="text" name="lname" id="lname" class="form_control" placeholder="Enter Your Last Name">
-                            <label for="name">First Name</label>
-                            <input type="text" name="fname" id="fname" class="form_control" placeholder="Enter Your First Name">
-                        </div>
-                    </form>
-                </div> 
-                <div class="modal-footer">
-                    <input type="button" class="btn-s" value="send">
-                </div> 
-                
+                <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
                 </div>
 
             </div>

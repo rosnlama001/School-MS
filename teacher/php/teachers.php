@@ -3,7 +3,7 @@
 <div class="panel">
     <div class="panel-row">
         <div class="panel-head">
-            <h3>Student Details</h3>
+            <h3>Teachers Details</h3>
             <div class="line">
                 <select name="" id="filter">
                     <option value="">Filter</option>
@@ -11,32 +11,16 @@
                     <option value="Course">Course</option>
                     <option value="All">All</option>
                 </select>
-            <a href="" class="addbtn" id="myBtn"><i class="fas fa-plus"></i> Add Students</a>
+            <a href="" class="addbtn" id="myBtn"><i class="fas fa-plus"></i> Add Teacher</a>
             </div>
         </div>
         <!-- The Modal -->
             <div id="myModal" class="modal">
 
                 <!-- Modal content -->
-                <div class="modal-content" style="overflow-y:auto;"> 
-                <div class="modal-head">
-                    <h4>Student Details</h4>
-                    <span class="close">&times;</span>
-                </div> 
-                <div class="modal-body">
-                    <form action="" method="post">
-                        <div class="form_group">
-                            <label for="lname">Last Name</label>
-                            <input type="text" name="lname" id="lname" class="form_control" placeholder="Enter Your Last Name">
-                            <label for="name">First Name</label>
-                            <input type="text" name="fname" id="fname" class="form_control" placeholder="Enter Your First Name">
-                        </div>
-                    </form>
-                </div> 
-                <div class="modal-footer">
-                    <input type="button" class="btn-s" value="send">
-                </div> 
-                
+                <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
                 </div>
 
             </div>

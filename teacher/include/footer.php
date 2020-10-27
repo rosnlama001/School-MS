@@ -8,6 +8,7 @@ $(document).ready(function(){
   });
 });
 </script>
+<script src="../assets/js/model.js"></script>
 
 </body>
 </html>
