@@ -42,6 +42,7 @@
                                     <!-- <a href="" class="smBtn-d">Deactive</a> -->
                                 </td>
                                 <td>
+                                    <a href="" class="smBtn-s">Add Questions</a>
                                     <a href="" class="smBtn">Edit</a>
                                     <a href="" class="smBtn-d">Delete</a>
                                 </td>
@@ -56,6 +57,7 @@
                                     <a href="" class="smBtn-d">Deactive</a>
                                 </td>
                                 <td>
+                                    <a href="" class="smBtn-s">Add Questions</a>
                                     <a href="" class="smBtn">Edit</a>
                                     <a href="" class="smBtn-d">Delete</a>
                                 </td>

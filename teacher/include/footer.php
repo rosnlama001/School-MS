@@ -10,6 +10,7 @@ $(document).ready(function(){
 </script>
 <script src="../assets/js/model.js"></script>
 <script src="../assets/js/filter.js"></script>
+<script src="../assets/js/hidenShow.js"></script>
 
 </body>
 </html>
