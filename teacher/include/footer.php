@@ -1,6 +1,6 @@
 </div>
 </div>
-
+<script src="../assets/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   $('.nav_btn').click(function(){
@@ -11,6 +11,12 @@ $(document).ready(function(){
 <script src="../assets/js/model.js"></script>
 <script src="../assets/js/filter.js"></script>
 <script src="../assets/js/hidenShow.js"></script>
+
+<!-- <script>
+  $(document).ready(()=>{
+    alert("loded");
+  });
+</script> -->
 
 </body>
 </html>
