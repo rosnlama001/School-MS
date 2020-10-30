@@ -1,4 +1,4 @@
 <?php include("../include/header.php"); ?>
-
-<?php require_once("../html/exam.php");?>
+<div id="wrap">
+</div>
 <?php include("../include/footer.php"); ?>

@@ -8,7 +8,8 @@
     background-color:#9c8608;
     outline: none;
     border-radius: 5px;
-    box-shadow: 1px 2px 20px rgb(26, 24, 24)
+    box-shadow: 1px 2px 20px rgb(26, 24, 24);
+    transition: all 0.5s linear;
     }
     a{
       text-decoration: none;
@@ -20,14 +21,14 @@
       
     }
     .panel .addbtn{
-      text-decoration: none;
       color: whitesmoke;
-      display: block;
+      /* display: block; */
       background-color: rgb(67, 122, 67);
-      padding: 10px;
+      padding: 10px 20px;
       border-radius: 5px;
       box-shadow: 1px 1px 20px black;
       margin: 5px;
+      cursor: pointer;
   
     }
     /* #filter{
@@ -232,6 +233,21 @@
 
   /* courses and facualty start*/
   #courses{
-    display: none;
+    display: block;
+    transition: all 0.5s linear;
   }
+  #faculty{
+    transition: all 0.8s linear;
+  }
+  .faculty_btn{
+    color: rgb(28 25 232);
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+  .faculty_btn:hover{
+    color: rgb(17, 2, 2);
+    
+  }
+
   /* courses and faculty end */

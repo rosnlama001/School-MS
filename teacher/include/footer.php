@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 <!-- <script>
   $(document).ready(()=>{
-    alert("loded");
+    $("#courses").css({"display":"none"});
   });
 </script> -->
 
