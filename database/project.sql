@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2020 at 05:39 AM
+-- Generation Time: Oct 30, 2020 at 01:16 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -20,23 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `project`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `adminpf`
---
-
-CREATE TABLE `adminpf` (
-  `pfId` int(11) NOT NULL,
-  `userId` int(11) NOT NULL,
-  `sex` int(11) NOT NULL,
-  `birthday` int(11) NOT NULL,
-  `mobile` int(11) NOT NULL,
-  `postcode` int(11) NOT NULL,
-  `address` int(11) NOT NULL,
-  `nationality` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -168,6 +151,7 @@ CREATE TABLE `question` (
 
 CREATE TABLE `studentpf` (
   `pfId` int(11) NOT NULL,
+  `fullName` varchar(50) NOT NULL,
   `userId` int(11) NOT NULL,
   `sex` varchar(20) NOT NULL,
   `birthdate` date NOT NULL,
@@ -202,6 +186,7 @@ CREATE TABLE `subject` (
 
 CREATE TABLE `teacherpf` (
   `pfId` int(11) NOT NULL,
+  `fullName` varchar(50) NOT NULL,
   `userId` int(11) NOT NULL,
   `address` varchar(50) NOT NULL,
   `birthdate` date NOT NULL,
@@ -221,8 +206,8 @@ CREATE TABLE `teacherpf` (
 -- Dumping data for table `teacherpf`
 --
 
-INSERT INTO `teacherpf` (`pfId`, `userId`, `address`, `birthdate`, `course`, `faculty`, `hobby`, `image`, `mobile`, `postcode`, `sex`, `subject`, `skill`, `nationality`) VALUES
-(1, 2, '', '2015-05-13', '1', '', '', '', 902345698, 5400022, '男性', '', '', '');
+INSERT INTO `teacherpf` (`pfId`, `fullName`, `userId`, `address`, `birthdate`, `course`, `faculty`, `hobby`, `image`, `mobile`, `postcode`, `sex`, `subject`, `skill`, `nationality`) VALUES
+(1, '', 2, '', '2015-05-13', '1', '', '', '', 902345698, 5400022, '男性', '', '', '');
 
 -- --------------------------------------------------------
 
