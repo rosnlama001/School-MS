@@ -3,6 +3,10 @@
 <div class="panel">
     <div class="panel-row">
         <div class="panel-head">
+        <div class="search_bar">
+            <label for="search"><i class="fas fa-search-plus"></i></label>
+            <input type="search" name="" id="search" placeholder="search by names" oninput="filter()">
+        </div>
             <h3>Exam Details  </h3>
             <a href="" class="addbtn" id="myBtn"><i class="fas fa-plus"></i> Add Exam Category</a>
         </div>
@@ -19,7 +23,7 @@
 <!-- The Modal end-->
         <div class="panel-body">
         <div style="overflow-x:auto;">
-                        <table>
+                        <table id="mytbl">
                             <tr>
                                 <th>sn</th>
                                 <th>Exam Category</th>

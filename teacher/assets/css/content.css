@@ -36,7 +36,7 @@
   .panel h3{
       color:white;
       text-transform: capitalize;
-      margin-left: 30px;
+      margin-left: -18px;
     }
   .panel-row{
     /* border: 2px solid red; */
@@ -50,6 +50,7 @@
   }
   .panel-head{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     margin:5px 3px 3px 3px;
@@ -129,7 +130,7 @@
   }
   /* model cssss */
   .modal {
-    display: flex; /* Hidden by default */
+    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -196,3 +197,28 @@
     overflow-y: auto;
   }
   /* model css end */
+  /* search bar start*/
+  .search_bar{
+    display: flex;
+  }
+  .search_bar i{
+    color: sandybrown;
+    position: relative;
+    left: 30px;
+    top: 10px;
+  }
+  .search_bar input{
+    outline: none;
+    background-color: rgb(95, 150, 119);
+    border:none;
+    padding: 10px 4px 10px 35px;
+    border-radius:10px;
+    color: white
+    ;
+  }
+  .search_bar input::placeholder{
+    color: rgb(231, 226, 225);
+    padding-left: 5px;
+  
+  }
+  /* search bar end here  */

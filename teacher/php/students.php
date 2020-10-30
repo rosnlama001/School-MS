@@ -3,14 +3,12 @@
 <div class="panel">
     <div class="panel-row">
         <div class="panel-head">
+        <div class="search_bar">
+            <label for="search"><i class="fas fa-search-plus"></i></label>
+            <input type="search" name="" id="search" placeholder="search by names" oninput="filter()">
+        </div> 
             <h3>Student Details</h3>
             <div class="line">
-                <select name="" id="filter">
-                    <option value="">Filter</option>
-                    <option value="Class">Class</option>
-                    <option value="Course">Course</option>
-                    <option value="All">All</option>
-                </select>
             <a href="" class="addbtn" id="myBtn"><i class="fas fa-plus"></i> Add Students</a>
             </div>
         </div>
@@ -43,7 +41,7 @@
             <!-- The Modal end-->
         <div class="panel-body">
                 <div style="overflow-x:auto;">
-                        <table>
+                        <table id="mytbl">
                             <tr>
                                 <th>sn</th>
                                 <th>username</th>
@@ -55,6 +53,17 @@
                             <tr>
                                 <td>1</td>
                                 <td><a href="">Lama</a></td>
+                                <td>abc@gmail.com</td>
+                                <td>098123355</td>
+                                <td>adjfhadhakhdfjjjjahdkjhakjhdjh</td>
+                                <td>
+                                    <a href="" class="smBtn">Edit</a>
+                                    <a href="" class="smBtn-d">Delete</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a href="">deepak</a></td>
                                 <td>abc@gmail.com</td>
                                 <td>098123355</td>
                                 <td>adjfhadhakhdfjjjjahdkjhakjhdjh</td>

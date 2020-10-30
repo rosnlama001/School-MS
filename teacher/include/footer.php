@@ -9,6 +9,7 @@ $(document).ready(function(){
 });
 </script>
 <script src="../assets/js/model.js"></script>
+<script src="../assets/js/filter.js"></script>
 
 </body>
 </html>
