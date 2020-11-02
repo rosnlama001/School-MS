@@ -73,6 +73,13 @@
                             
                         </table>
              </div>
+             <div class="pagenition">
+                 <a href="" class="pgnbtn">prev</a>
+                 <a href="" class="pgnbtn active">1</a>
+                 <a href="" class="pgnbtn">2</a>
+                 <a href="" class="pgnbtn">3</a>
+                 <a href="" class="pgnbtn">Next</a>
+             </div>
         </div>
     </div>
 </div>

@@ -33,7 +33,7 @@ class query extends Database
     // }
     // }
     // -------------------------
-    public function  get_data($table, $field = "", $condition = "", $order_by_field = "", $order_updown = "")
+    public function  get_data($table, $field = "", $condition = "", $order_by_field = "", $order_updown = "",$limitofset="",$limit="")
     {
         $sql = "select * from $table ";
         if ($field != "") {
@@ -53,6 +53,9 @@ class query extends Database
         }
         if ($order_by_field != "" && $order_updown != "") {
             $sql .= " order by {$order_by_field} {$order_updown} ";
+        }
+        if ($limitofset !="" && $limit !="") {
+            $sql .= " limit  {$limitofset},{$limit} ";
         }
         //  die($sql);
         $result = $this->conn()->query($sql);
@@ -134,6 +137,48 @@ class query extends Database
         // }else{
         //     echo "Something Error in Deleting  data";
         // }
+    }
+    public function  get_join_data($table1,$table2, $field = "", $condition1 = "", $condition2 = "", $order_by_field = "", $order_updown = "",$limitofset="",$limit="")
+    {
+        $sql = "select * from $table1,$table2 ";
+        if ($field != "") {
+            $sql = "select {$field} from {$table1},{$table2}";
+        }
+        if ($condition1 != "") {
+            $sql .= " where $table1.$condition1 = $table2.$condition1 ";
+            if ($condition2 != "") {
+                $sql .= " and ";
+                $count = count($condition2);
+            $i = 0;
+                foreach ($condition2 as $key => $value) {
+                    $sql .= " {$key} ='{$value}' ";
+                    $i++;
+                    if ($i < $count) {
+                        $sql .= " and ";
+                    }
+                }
+            }
+        }
+        if ($order_by_field != "" && $order_updown != "") {
+            $sql .= " order by {$order_by_field} {$order_updown} ";
+        }
+        if (($limitofset !="" || $limitofset == 0) && $limit !="") {
+            $sql .= " limit  {$limitofset},{$limit} ";
+        }
+        //  die($sql);
+        $result = $this->conn()->query($sql);
+        if ($result->num_rows > 0) {
+            $arr = array();
+            while ($row = $result->fetch_assoc()) {
+                $arr[] = $row;
+            }
+            // print_r($arr);
+            return $arr;
+            // echo $sql;
+        } else {
+            //  echo "No data found";
+            return 0;
+        }
     }
 }
 

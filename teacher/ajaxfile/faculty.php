@@ -17,6 +17,7 @@ if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
     
         if(isset($row1[0])){
             require_once("../html/faculty.php"); 
+            // echo "don2";
         }else{
             $_SESSION['erMsg']="No data Found for faculty";
         }
