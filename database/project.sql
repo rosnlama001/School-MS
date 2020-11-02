@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2020 at 01:16 AM
+-- Generation Time: Nov 02, 2020 at 06:43 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -163,7 +163,8 @@ CREATE TABLE `studentpf` (
   `faculty` varchar(50) NOT NULL,
   `course` varchar(50) NOT NULL,
   `subject` varchar(255) NOT NULL,
-  `hobby` tinytext NOT NULL
+  `hobby` tinytext NOT NULL,
+  `regNo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -178,6 +179,23 @@ CREATE TABLE `subject` (
   `subname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `subject`
+--
+
+INSERT INTO `subject` (`subid`, `cid`, `subname`) VALUES
+(1, 1, 'WebSystem'),
+(2, 2, 'WebSystem'),
+(3, 1, 'JavaScript'),
+(4, 2, 'JavaScript'),
+(5, 1, 'CSS'),
+(6, 2, 'CSS'),
+(7, 1, 'CCNA'),
+(8, 1, 'RUBY'),
+(9, 2, 'AI'),
+(10, 2, 'PYTHON'),
+(11, 2, 'Raspberry');
+
 -- --------------------------------------------------------
 
 --
@@ -188,6 +206,8 @@ CREATE TABLE `teacherpf` (
   `pfId` int(11) NOT NULL,
   `fullName` varchar(50) NOT NULL,
   `userId` int(11) NOT NULL,
+  `nationality` varchar(20) NOT NULL,
+  `postcode` int(20) NOT NULL,
   `address` varchar(50) NOT NULL,
   `birthdate` date NOT NULL,
   `course` varchar(20) NOT NULL,
@@ -195,19 +215,17 @@ CREATE TABLE `teacherpf` (
   `hobby` text NOT NULL,
   `image` longtext NOT NULL,
   `mobile` int(20) NOT NULL,
-  `postcode` int(20) NOT NULL,
   `sex` varchar(10) NOT NULL,
   `subject` varchar(100) NOT NULL,
-  `skill` text NOT NULL,
-  `nationality` varchar(20) NOT NULL
+  `skill` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teacherpf`
 --
 
-INSERT INTO `teacherpf` (`pfId`, `fullName`, `userId`, `address`, `birthdate`, `course`, `faculty`, `hobby`, `image`, `mobile`, `postcode`, `sex`, `subject`, `skill`, `nationality`) VALUES
-(1, '', 2, '', '2015-05-13', '1', '', '', '', 902345698, 5400022, '男性', '', '', '');
+INSERT INTO `teacherpf` (`pfId`, `fullName`, `userId`, `nationality`, `postcode`, `address`, `birthdate`, `course`, `faculty`, `hobby`, `image`, `mobile`, `sex`, `subject`, `skill`) VALUES
+(1, '', 2, '', 5400022, '', '2015-05-13', '1', '', '', '', 902345698, '男性', '', '');
 
 -- --------------------------------------------------------
 
@@ -233,9 +251,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `userName`, `eMail`, `pass`, `status`, `otp`, `regDate`, `otpDate`, `flag`) VALUES
 (14, 'admin', 'admin@sms.com', '$2y$10$E7X16/eE7tGPrVyPNUy.SOMitQBGOyWNgbPWxmWoiXu4taThS.8Ii', 'admin', '', '2020-10-23 09:49:07', '0000-00-00 00:00:00', 0),
-(50, 'kakas', 'ad@asd.fdd', '$2y$10$YDXocUi4XWKTf/TvJrr7TedrU4AQJvuIQqq2Q49x1HmME8/0hZEh6', 'teacher', '73479', '2020-10-25 05:03:42', '2020-10-25 05:03:42', 0),
 (51, 'otera', 'otera@sms.com', '$2y$10$06iZ94W5nqKdsaBvevNtTeQEtP25Gg9aru8hTzdMRVHuAxeC9.BDa', 'teacher', '', '2020-10-25 05:07:23', '0000-00-00 00:00:00', 0),
-(52, 'deep', 'deep@sms.com', '$2y$10$nga/iBHvHiNmvN.uyO6L7OP0ZAzFf3iDy2zSRfK.rxJBi/6tlykzO', 'teacher', '', '2020-10-26 02:48:03', '0000-00-00 00:00:00', 0);
+(52, 'deep', 'deep@sms.com', '$2y$10$nga/iBHvHiNmvN.uyO6L7OP0ZAzFf3iDy2zSRfK.rxJBi/6tlykzO', 'teacher', '', '2020-10-26 02:48:03', '0000-00-00 00:00:00', 0),
+(55, 'asd', 'asdf@s', '$2y$10$WOHJnPSJExVkXolOfp.taOv2l1rs7d1XDMyQK3qu.HDWNDj/PfnhW', 'teacher', '59366', '2020-11-01 07:27:59', '2020-11-01 07:27:59', 0),
+(56, 'rosh', 'rosh@sms.com', '$2y$10$UKg9jGegaV05zpXTYSXvAupLnWMq6YjZDUU3s7TeyE6dGjrFtKGQe', 'teacher', '', '2020-11-02 09:14:48', '0000-00-00 00:00:00', 0);
 
 --
 -- Indexes for dumped tables
@@ -375,7 +394,7 @@ ALTER TABLE `studentpf`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `teacherpf`
@@ -387,7 +406,7 @@ ALTER TABLE `teacherpf`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
