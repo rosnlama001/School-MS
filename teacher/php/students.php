@@ -47,9 +47,10 @@
                             </div>
                             <div class="line">
                                <div class="form_group">
-                                   <label for="name">Last Name</label>
-                                   <input type="text" name="name" id="name" class="form_control">
+                                   <label for="zip">Postal Code</label>
+                                   <input type="text" name="zip" id="zip" class="form_control">
                                </div>
+                               <input type="button" value="search address">
                             </div>
                             <div class="line">
                                <div class="form_group">
@@ -99,12 +100,14 @@
                                </div>
                             </div>
                            
+                           
                        </div>
-                    </form>
+                    
                 </div> 
                 <div class="modal-footer">
-                    <input type="button" class="btn-s" value="send">
+                    <input type="submit" class="btn-s" value="send">
                 </div> 
+                </form>
                 
                 </div>
 
