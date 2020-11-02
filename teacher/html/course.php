@@ -1,6 +1,6 @@
 <div class="panel" id="courses">
     <!-- course started -->
-    <a href="course.php" id="back"><i class="fas fa-arrow-left"></i></a>
+    <a href="facultyncourse.php" id="back"><i class="fas fa-arrow-left"></i></a>
     <div class="panel-row">
         <div class="panel-head">
         <div class="search_bar">
@@ -8,7 +8,7 @@
             <input type="search" name="" id="search1" placeholder="search by names" oninput="filter1()">
         </div>  
             <h3>Course Details  </h3>
-            <a href="" class="addbtn" id="myBtn"><i class="fas fa-plus"></i> Add Course</a>
+            <button class="addbtn" id="myBtn"><i class="fas fa-plus"></i> Add Course</button>
         </div>
          <!-- The Modal -->
          <div id="myModal" class="modal">
@@ -35,7 +35,7 @@
                         <?php for($i=0; $i<count($row); $i++){ ?>
                             <tr>
                                 <td><?php echo ($i+1); ?></td>
-                                <td><a href=""><?php echo $row[$i]['cname']; ?></a></td>
+                                <td><p class="faculty_btn"><?php echo $row[$i]['cname']; ?></p></td>
                                 <td>5</td>
                                 <td>2</td>
                                 <td>

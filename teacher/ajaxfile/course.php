@@ -1,24 +1,20 @@
-<?php include("../include/header.php"); ?>
-<?php 
-// session_start();
+<?php
 include("../../database/db.php");
 include("../../functions/function.php");
 // query object ----------------------
 $obj1 = new sfunction();
 $obj = new query();
-// query object end--------------
-if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
-    redirect("../../index.php");
-}else{
-    // require_once("../html/course.php");
-    $row=$obj->get_data('course','*','','cid','desc');
-    // $row1=$obj->get_data('faculty','*','','fid','desc');
-    
+ if(isset($_POST['fid'])){
+    //  echo $_POST['fid'];
+    $fid=$_POST['fid'];
+    $condi_array = array("fid" => "{$fid}");
+    $row=$obj->get_data('course','*',$condi_array,'cid','desc');
+
     if(isset($row[0])){
-        require_once("../html/faculty.php"); 
+        require_once("../html/course.php"); 
+        // echo "don2";
     }else{
-        $_SESSION['erMsg']="No data Found";
+        $_SESSION['erMsg']="No data Found for course";
     }
 }
 ?>
-<?php include("../include/footer.php"); ?>
