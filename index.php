@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -47,33 +46,50 @@
         </section>
     </header>
 </body>
+
 </html>
-    <?php 
-        if(isset($_GET['red'])){
-    ?>
-                <script>
-                var err="<?php  echo $_GET['red'] ?>";
-                console.log(err);
-                if(err =="ok"){
-                    
-                        swal({
-                    title: "Good Job!",
-                    text: "succcessful",
-                    icon: "success",
-                    button: "Try again",
-                            });
-                    }
-                    else{
-                        swal({
-                    title: "wARNING",
-                    text: "something wrong",
-                    icon: "error",
-                    button: "Try again",
-                            });
-                    }
-            </script>
-    <?php 
-        } 
-    ?>
-         
-                
+<?php
+if (isset($_GET['red'])) {
+?>
+<script>
+var err = "<?php echo $_GET['red'] ?>";
+var link = "http://localhost/sms/roshan/School-MS/";
+console.log(err);
+if (err == "registerOk") {
+    swal({
+        title: "登録終了",
+        text: "登録できました。",
+        icon: "success",
+        button: "ログインお願い。",
+    }).then((value) => {
+        if (value == true || value == null) {
+            window.location = link;
+        }
+    });
+} else if (err == "otpTimeOut") {
+    swal({
+        title: "OTP失敗",
+        text: "OTP入力時間きれました。",
+        icon: "error",
+        button: "またお願い。",
+    }).then((value) => {
+        if (value == true || value == null) {
+            window.location = link;
+        }
+    });
+} else if (err == "registered") {
+    swal({
+        title: "登録違",
+        text: "メールアドレスは既に存在します。 別の方法を試してください。",
+        icon: "error",
+        button: "またお願い。",
+    }).then((value) => {
+        if (value == true || value == null) {
+            window.location = link;
+        }
+    });
+}
+</script>
+<?php
+}
+?>
