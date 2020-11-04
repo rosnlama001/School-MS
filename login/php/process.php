@@ -38,8 +38,7 @@ if (!$_POST) {
             } else if ($row[0]['status'] == "student" && $row[0]['status'] == $urlstatus) {
                 redirect("../../student/php/home.php");
             } else {
-                $red = "illegal";
-                redirect("../../index.php?red={$red}");
+                redirect("../../index.php?red=illegal");
             }
         } else {
             // $error = "メールアドレスまたはパスワードを間違っています。";
@@ -66,8 +65,7 @@ if (!$_POST) {
     $condi_array = array("eMail" => "{$regeMail}");
     $row = $obj->get_data("user", "", $condi_array);
     if (isset($row[0])) {
-        $error = "メールアドレスは既に登録されていますので、別のメールアドレスでお試しください。";
-        redirect("../../index.html?error={$error}");
+        redirect("../../index.php?red=registered");
     } else {
         mb_language("uni");
         mb_internal_encoding("UTF-8");
@@ -95,10 +93,10 @@ if (!$_POST) {
             $condi_array = array("otp" => "", "otpDate" => "");
             // update user set opt="$otp" date="" where otp=$opt;
             $row = $obj->update_data("user", $condi_array, "otp", $otp);
-            redirect("../../index.php?red=ok");
+            redirect("../../index.php?red=registerOk");
         } else {
-            $row = $obj->update_data("user", "otp", $otp);
-            redirect("../../index.php?red=failed");
+            $row = $obj->delete_data("user", "otp", $otp);
+            redirect("../../index.php?red=otpTimeOut");
         }
     }
 }
