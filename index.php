@@ -53,7 +53,7 @@ if (isset($_GET['red'])) {
 ?>
 <script>
 var err = "<?php echo $_GET['red'] ?>";
-var link = "http://localhost/sms/roshan/School-MS/";
+var link = "http://localhost/sms/";
 console.log(err);
 if (err == "registerOk") {
     swal({
@@ -81,6 +81,18 @@ if (err == "registerOk") {
     swal({
         title: "登録違",
         text: "メールアドレスは既に存在します。 別の方法を試してください。",
+        icon: "error",
+        button: "またお願い。",
+    }).then((value) => {
+        if (value == true || value == null) {
+            window.location = link;
+        }
+    });
+}
+else if (err == "illegal") {
+    swal({
+        title: "危険物",
+        text: "危険物　危険物　危険物　危険物。",
         icon: "error",
         button: "またお願い。",
     }).then((value) => {

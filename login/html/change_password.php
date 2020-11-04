@@ -15,30 +15,27 @@
     <div class="wrapper">
         <!-- email form -->
         <div id="change_password">
-            <form action="login.php" method="post">
+            <form action="../php/change_password.php" method="post">
                 <div class="email_form">
                     <label for="password">新パスワード ：</label><br>
-                    <input type="password" class="form_input" name="email" id="password" placeholder="新パスワードを入力してください。">
+                    <input type="password" class="form_input" name="password" id="password" placeholder="新パスワードを入力してください。">
                 </div>
                 <div class="email_form">
                     <label for="password">もう一度パスワード ：</label><br>
-                    <input type="password" class="form_input" name="email" id="password" placeholder="もう一度パスワード を入力してください。">
+                    <input type="password" class="form_input" name="repassword" id="password" placeholder="もう一度パスワード を入力してください。">
                 </div>
+                <?php if(isset($_SESSION['error'])){?>
                 <div class="error">
-                        <p> <p>
+                        <p><?php echo  $_SESSION['error']; ?> <p>
                 </div>
+                <?php } ?>
                 <div class="email_btn">
-                <input type="submit" class="form_btn" value="送信" id="send_btn">
+                <input type="submit" class="form_btn" name="chng_btn" value="送信" id="send_btn">
                 </div>
             </form>
         </div>
         <!-- email form ends here -->
     </div>
-
- 
-
 </body>
 
-</html>
-</body>
 </html>

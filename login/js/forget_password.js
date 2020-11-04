@@ -12,39 +12,73 @@ window.addEventListener("load",()=>{
 
     function forgetEmail(e){
         e.preventDefault();
-        let email=document.getElementById("femail").value;
+        // alert("clecked");
+        let emailField=document.getElementById("femail");
+        let email=emailField.value;
         let emailError=document.getElementById("femailError");
         let emailError1=document.getElementById("femailError1");
-        // emailError.innerHTML=email + "<b> is not matched</b>";
-        // emailEemailErrorrror.style.color="red";
-        function ajaxFun() {
-            var xhttp = new XMLHttpRequest();
-            let url="femail="+email;
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    if(this.responseText =="ok"){
-                        change();
-                        emailError1.innerHTML = "メール確認のためOTPをメールで送信しました。";
-                        emailError1.innerHTML =this.responseText;
-                    }else if(this.responseText =="notok"){
-                        emailError.innerHTML = "mail send failed";
-                        emailError1.innerHTML =this.responseText;
-                    }
-                    else if(this.responseText =="bad"){
-                        emailError.innerHTML = "matched not found in database";
-                        emailError1.innerHTML =this.responseText;
-                    }
-                    
-               }
-            };
-            xhttp.open("POST", "../ajaxFile/forget_password.php", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send(url);
+        if(email==""){
+            emailError.innerHTML="<b style='green'>Filed should not be empty!!</b>";
+        }else{
+        var data="femail="+email;
+            $.ajax({
+                url: "../ajaxfile/forget_password.php?",
+                type:"post",
+                data:data,
+                success:function(data){
+                   
+                   if(data=="send"){
+                    // console.log("mail send");
+                    emailError1.innerHTML="<b style='green'>メール確認のためOTPをメールで送信しました。</b>";
+                    change();
+                   }
+                   else if(data=="notsend"){
+                    // console.log("mail not send");
+                    emailError.innerHTML="<b style='red'>OTPをメールで送信出来なかった。</b>";
+                    emailField.value="";
+                   }
+                   else{
+                    // console.log("no email matchedd");
+                    emailError.innerHTML="<b style='red'>メールアドレスを間違ってます。</b>";
+                    emailField.value="";
+                   }
+                }
+            });
         }
-        ajaxFun();
-
     }
+    // opt functions start form here
+    let otpform=document.getElementById("forgetOtp");
+    otpform.addEventListener("submit",otpfun,false);  
+    function otpfun(e){
+                e.preventDefault();
+                let emailError1=document.getElementById("femailError1");
+                // alert("otp is clicked");
+                let otpfield=document.getElementById("otp");
+                let otp=otpfield.value;
+                if(otp==""){
+                    emailError1.innerHTML="<b style='green'>Filed should not be empty!!</b>";
+                }else{
+                var data="otp="+otp;
+                    $.ajax({
+                        url: "../ajaxfile/forget_password.php?",
+                        type:"post",
+                        data:data,
+                        success:function(data){
+                            if(data=="true"){
+                                window.location.href="../html/change_password.php";
+                            } else{
+                                // console.log("no email matchedd");
+                                emailError1.innerHTML=data;
+                                emailField.value="";
+                            }
+                        }
+                    });
+                }
+         }  
     
     
 },false);
+window.onbeforeunload=function(){
+    return "are sure to change the tabs";
+}
 
