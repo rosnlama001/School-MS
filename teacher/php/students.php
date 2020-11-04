@@ -33,18 +33,18 @@
                                    <input type="text" name="name" id="name" class="form_control">
                                </div>
                            </div>
-                           <div class="line">
+                          
                                <div class="form_group">
                                    <label for="name">Last Name</label>
                                    <input type="text" name="name" id="name" class="form_control">
                                </div>
-                            </div>
-                            <div class="line">
+                           
+                            
                                <div class="form_group">
                                    <label for="name">Last Name</label>
                                    <input type="text" name="name" id="name" class="form_control">
                                </div>
-                            </div>
+                            
                             <div class="line">
                                <div class="form_group">
                                    <label for="zip">Postal Code</label>
@@ -52,20 +52,20 @@
                                </div>
                                <input type="button" value="search address">
                             </div>
-                            <div class="line">
+                            
                                <div class="form_group">
                                    <label for="name">Last Name</label>
                                    <input type="text" name="name" id="name" class="form_control">
                                </div>
-                            </div>
-                            <div class="line">
+                            
+                            
                                <div class="form_group">
                                    <label for="radio">Gender</label>
                                    <input type="radio" name="sex" id="radio" class="form_radio">
                                    <input type="radio" name="sex" id="radio" class="form_radio">
                                </div>
-                            </div>
-                            <div class="line">
+                            
+                            
                                <div class="form_group">
                                    <label for="radio">faaculty</label>
                                    <select name="select" id="select" class="select">
@@ -76,8 +76,8 @@
                                    <option value="">3</option>
                                    </select>
                                </div>
-                            </div>
-                            <div class="line">
+                           
+                            
                                <div class="form_group">
                                    <label for="radio">faaculty</label>
                                    <select name="select" id="select" class="select">
@@ -88,8 +88,8 @@
                                    <option value="">3</option>
                                    </select>
                                </div>
-                            </div>
-                            <div class="line">
+                            
+                            
                                <div class="form_group">
                                    <label for="course">course</label>
                                   <input type="checkbox" name="course" id="course">it
@@ -98,7 +98,7 @@
                                   <input type="checkbox" name="course" id="course">it
 
                                </div>
-                            </div>
+                            
                            
                            
                        </div>

@@ -73,7 +73,7 @@ if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
            $output.=" </div>";
             echo $output;
         }else{
-            echo "No data Found for students";
+            echo "<strong style='color:crimson' >No data Found for students</strong>";
         }
 }
 
