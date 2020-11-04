@@ -79,7 +79,7 @@ if (!$_POST) {
                 "$userName,$regeMail,$hashPass,$status,$otp,$date,$date"
             );
             $msg = "メール確認のためOTPをメールで送信しました。";
-            require_once("../html/otp.php");
+            redirect("../html/otp.php");
         }
     }
 } else if (isset($_POST["sub"])) {

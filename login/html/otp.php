@@ -15,21 +15,21 @@
         <!-- -------------------------------------------------------------- -->
         <!-- otp form starts here -->
         <div id="otp_form1">
-            <form id="forgetOtp" method="post">
+            <form action="../php/process.php" id="forgetOtp" method="post">
                 <div class="email_form">
                     <?php if (isset($msg)) { ?>
-                        <div class="success" style="color:green">
-                            <?php echo $msg; ?>
-                        </div>
+                    <div class="success" style="color:green">
+                        <?php echo $msg; ?>
+                    </div>
                     <?php } ?>
 
                     <label for="otp">確認コード ：</label><br>
                     <input type="text" class="form_input" name="otp" id="otp" placeholder="確認コードを入力してください。">
                 </div>
                 <?php if (isset($error)) { ?>
-                    <div class="error">
-                        <?php echo $error; ?>
-                    </div>
+                <div class="error">
+                    <?php echo $error; ?>
+                </div>
                 <?php } ?>
                 <div class="email_btn">
                     <input type="submit" class="form_btn" value="次" id="next_btn" name="sub">
