@@ -98,5 +98,8 @@ if (!$_POST) {
             $row = $obj->delete_data("user", "otp", $otp);
             redirect("../../index.php?red=otpTimeOut");
         }
+    } else {
+        $error = ("OTPが間違っています。もう一度入力してください。");
+        require_once("../html/otp.php");
     }
 }
