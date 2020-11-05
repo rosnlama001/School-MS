@@ -194,19 +194,7 @@
     height: 72%;
     overflow-y: auto;
   }
-  .modal-footer{
-    /* border: 1px solid black; */
-    background-color: rgb(216, 231, 216);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 1px 1px 10px black;
-    border-radius: 5px;
-    padding: 0px 10px;
-    margin: 16px 0px;
-    height: 9%;
-    overflow-y: auto;
-  }
+
   /* model css end */
   /* search bar start*/
   .search_bar{
@@ -279,52 +267,119 @@
   /* pageninatio end */
 
   /*  register form start */
-  .cont{
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      padding: 20px 25px 20px 20px;
-      height: 100%;  
-  }
-  input[type=text], select{
-    width: 100%;
-    padding: 15px 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-  .line{
+.cont_nr{
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid black;
+    /* overflow-y:auto; */
+}
+.row{
     display: flex;
-  }
-  .line .form_group input[type=text], select{
+    flex-direction: row;
     width: 100%;
-    padding: 15px 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-  .line .form_group{
-    float: left;
-    width: 50%;
-    margin-top: 6px;
-  }
-  .form_group{
-    /* float: left; */
-    width: 100%;
-    margin-top: 6px;
+    /* border: 1px solid green; */
+    margin-top: 5px;
+}
+ .col-5{
     display: flex;
     flex-direction: column;
+    padding: 2px;
+    margin: 5px 10px;
+    /* border: 1px solid red; */
+    width: 50%;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    margin: 5px 5px;
+    /* border: 1px solid red; */
+    width: 100%;
+}
+.row input,select{
+    width: 100%;
+    padding: 10px 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    margin-top: 5px;
+
+}
+.row input[type="button"],input[type="submit"]{
+    width: 100%;
+    padding: 10px 6px;
+    border: 1px solid rgb(84, 163, 19);
+    border-radius: 4px;
+    margin-top: 22px;
+    box-shadow: 0px 0px 5px black;
+    cursor: pointer;
+
+}
+
+.row input:focus,
+.row select:focus{
+    outline-color: greenyellow;
+}
+.form_check{
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  padding: 5px; 
+}
+.form_radio{
+  margin: 7px 10px;
+  padding: 2px;
+}
+.form_radio input[type="radio"],input[type="checkbox"]{
+  margin-left: 20px;
+}
+.form_radio label{
+  position: relative;
+  top: -2px;
+  left: 5px;
+  text-transform: capitalize;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* buttons css start */
+.btn_warning{
+  background-color: rgb(211, 248, 47);
+}
+.btn_warning:hover{
+  background-color: rgb(231, 245, 155);
+  transition: all 0.5s linear;
+}
+.btn_success{
+  background-color: rgb(95, 199, 54);
+}
+.btn_success:hover{
+  background-color: rgb(180, 206, 169);
+  transition: all 0.5s linear;
+}
+.btn_danger{
+  background-color: red;
+}
+.btn_danger:hover{
+  background-color: rgb(218, 139, 139);
+  transition: all 0.5s linear;
+}
+/* buttons css end */
+
+
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
   }
-  .line{
-    content: "";
-    display: table;
-    clear: both;
+  .col-5,.col{
+    width: 100%;
+    margin: 5px 0px;
+  }
+  .cont_nr{
+    padding-right: 37px;
+  }
+  .row input[type="button"]{
+    margin-top: -3px;
   }
   
   
-  @media screen and (max-width: 600px) {
-    .line .form_group,.form_group, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
+}
   /*  register form end */

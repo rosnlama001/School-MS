@@ -20,93 +20,104 @@
                     <h4>Student Details</h4>
                     <span class="close">&times;</span>
                 </div> 
-                <div class="modal-body">
-                    <form action="" method="post">
-                       <div class="cont">
-                           <div class="line">
-                               <div class="form_group">
-                                   <label for="name">Last Name</label>
-                                   <input type="text" name="name" id="name" class="form_control">
-                               </div>
-                               <div class="form_group">
-                                   <label for="name">Last Name</label>
-                                   <input type="text" name="name" id="name" class="form_control">
-                               </div>
-                           </div>
-                          
-                               <div class="form_group">
-                                   <label for="name">Last Name</label>
-                                   <input type="text" name="name" id="name" class="form_control">
-                               </div>
-                           
-                            
-                               <div class="form_group">
-                                   <label for="name">Last Name</label>
-                                   <input type="text" name="name" id="name" class="form_control">
-                               </div>
-                            
-                            <div class="line">
-                               <div class="form_group">
-                                   <label for="zip">Postal Code</label>
-                                   <input type="text" name="zip" id="zip" class="form_control">
-                               </div>
-                               <input type="button" value="search address">
+                <form action="" method="post">
+                    <div class="modal-body">
+                    <div class="cont_nr">
+                            <div class="row">
+                                <div class="col-5">
+                                <label for="lname">Last Name</label>
+                                <input type="text" name="lname" id="lname" placeholder="Enter Your Last Name">
+                                </div>
+                                <div class="col-5">
+                                <label for="fname">First Name</label>
+                                <input type="text" name="fname" id="fname" placeholder="Enter Your First Name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <label for="zip">Postal Code</label>
+                                    <input type="text" name="zip" id="zip" placeholder="5330011">
+                                </div>
+                                <div class="col-5">
+                                    <input type="button" name="address" id="address" value="search address">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="address">Address</label>
+                                    <input type="text" name="address" id="address" placeholder="Enter Your address">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="dob">Date of Birth</label>
+                                    <input type="date" name="dob" id="dob">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="tel">Mobile</label>
+                                    <input type="tel" name="tel" id="tel">
+                                </div>
+                            </div>
+                            <div class="form_check">
+                                    <label for="address">Gender</label>
+                                    <div class="form_radio">
+                                        <input type="radio" name="address" id="male" placeholder="Enter Your address">
+                                        <label for="male">Male</label>
+                                        <input type="radio" name="address" id="female" placeholder="Enter Your address">
+                                        <label for="female">female</label>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="">Faculty</label>
+                                    <select name="" id="">
+                                        <option value="">select Faculty</option>
+                                        <option value="">12</option>
+                                        <option value="">23</option>
+                                        <option value="">33</option>
+                                        <option value="">22</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="">Course</label>
+                                    <select name="" id="">
+                                        <option value="">select course</option>
+                                        <option value="">12</option>
+                                        <option value="">23</option>
+                                        <option value="">33</option>
+                                        <option value="">22</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form_check">
+                                    <label for="address">Subject</label>
+                                    <div class="form_radio">
+                                        <input type="checkbox" name="subject[]" id="PHP" placeholder="Enter Your address">
+                                        <label for="PHP">PHP</label>
+                                        <input type="checkbox" name="subject[]" id="HTML" placeholder="Enter Your address">
+                                        <label for="HTML">HTML</label>
+                                        <input type="checkbox" name="subject[]" id="CSS" placeholder="Enter Your address">
+                                        <label for="CSS">CSS</label>
+                                        <input type="checkbox" name="subject[]" id="JAVA" placeholder="Enter Your address">
+                                        <label for="JAVA">JAVA</label>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <input type="submit" class="btn_success" value="Submit">
+                                </div>
+                                <div class="col-5"><input type="button" class="btn_danger " value="cancel"></div>
                             </div>
                             
-                               <div class="form_group">
-                                   <label for="name">Last Name</label>
-                                   <input type="text" name="name" id="name" class="form_control">
-                               </div>
-                            
-                            
-                               <div class="form_group">
-                                   <label for="radio">Gender</label>
-                                   <input type="radio" name="sex" id="radio" class="form_radio">
-                                   <input type="radio" name="sex" id="radio" class="form_radio">
-                               </div>
-                            
-                            
-                               <div class="form_group">
-                                   <label for="radio">faaculty</label>
-                                   <select name="select" id="select" class="select">
-                                   <option value="">select one</option>
-                                   <option value="">1</option>
-                                   <option value="">2</option>
-                                   <option value="">2</option>
-                                   <option value="">3</option>
-                                   </select>
-                               </div>
-                           
-                            
-                               <div class="form_group">
-                                   <label for="radio">faaculty</label>
-                                   <select name="select" id="select" class="select">
-                                   <option value="">select one</option>
-                                   <option value="">1</option>
-                                   <option value="">2</option>
-                                   <option value="">2</option>
-                                   <option value="">3</option>
-                                   </select>
-                               </div>
-                            
-                            
-                               <div class="form_group">
-                                   <label for="course">course</label>
-                                  <input type="checkbox" name="course" id="course">it
-                                  <input type="checkbox" name="course" id="course">it
-                                  <input type="checkbox" name="course" id="course">it
-                                  <input type="checkbox" name="course" id="course">it
-
-                               </div>
-                            
-                           
-                           
-                       </div>
+                        </div>
+    
+                    </div>
+                        
                     
-                </div> 
-                <div class="modal-footer">
-                    <input type="submit" class="btn-s" value="send">
-                </div> 
                 </form>
                 
                 </div>
