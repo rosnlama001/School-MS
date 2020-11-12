@@ -10,6 +10,8 @@
     </script>
     <script src="../assets/js/model.js"></script>
     <script src="../assets/js/filter.js"></script>
+    <script src="../assets/js/postalCode.js"></script>
+    <script src="../assets/js/action.js"></script>
 
 </body>
 </html>

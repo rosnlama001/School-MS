@@ -11,7 +11,7 @@ $output="";
 if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
     redirect("../../index.php");
 }else{
-    $limit_per_page=5;
+    $limit_per_page=2;
     $page="";
     if(isset($_POST["page_no"])){
         $page=$_POST["page_no"];
@@ -46,8 +46,8 @@ if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
                         <td>{$row[$i]['faculty']}</td>
                         <td>{$row[$i]['course']}</td>
                         <td>
-                            <a href='' class='smBtn'>Edit</a>
-                            <a href='' class='smBtn-d'>Delete</a>
+                            <a href='#' class='smBtn' id='edit' onclick='edit({$row[$i]['userId']})'>Edit</a>
+                            <a href='#' class='smBtn-d' id='delete' onclick='remove({$row[$i]['userId']})'>Delete</a>
                         </td>
                     </tr>";
             }
@@ -55,7 +55,7 @@ if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
             $output.="</table>";
             $output.="</div>
             <div class='pagenition'>";
-        $row1=$obj->get_data('user');
+        $row1=$obj->get_join_data('user','studentpf','*','userId',$condi_array);
         $total_record=count($row1);
         $total_page=ceil($total_record/$limit_per_page);
         

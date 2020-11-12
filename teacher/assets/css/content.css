@@ -141,7 +141,7 @@
   }
   /* model cssss */
   .modal {
-    display: flex; /* Hidden by default */
+    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -383,3 +383,17 @@
   
 }
   /*  register form end */
+  /*massege color start*/
+  .danger{
+    color: red;
+    margin: 2px 5px;
+  }
+  .success{
+    color: rgb(10, 107, 39);
+    margin: 2px 5px;
+  }
+  .warning{
+    color: rgb(110, 95, 8);
+    margin: 2px 5px;
+  }
+  /*massege color end*/
