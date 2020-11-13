@@ -131,11 +131,11 @@
     text-align: left;
     padding: 5px 10px;
   } 
-  tr:nth-child(odd){
+  tbody tr:nth-child(odd){
     background-color: #999090;
     /* background-color: rgb(26, 24, 24); */
   }
-  tr:nth-child(1){
+  thead tr:nth-child(1){
     /* background-color: #999090; */
     background-color: rgb(26, 24, 24);
   }
