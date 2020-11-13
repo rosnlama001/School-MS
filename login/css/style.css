@@ -116,6 +116,14 @@ body {
 .form .options-02 a {
   color: #4285f4;
 }
+
+.danger {
+  color: rgb(245, 63, 63);
+  position: relative;
+  top: -21px;
+  left: 0px;
+}
+
 .form .error {
   margin-bottom: 10px;
   color: rgb(245, 63, 63);

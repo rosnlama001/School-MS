@@ -1,11 +1,11 @@
 <?php
-$cokEmail="";
-$cokPass="";
-$checked="";
-if(isset($_COOKIE['email']) && isset($_COOKIE['pass'])){
-    $cokEmail=$_COOKIE['email'];
-    $cokPass=$_COOKIE['pass'];
-    $checked="checked";
+$cokEmail = "";
+$cokPass = "";
+$checked = "";
+if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
+    $cokEmail = $_COOKIE['email'];
+    $cokPass = $_COOKIE['pass'];
+    $checked = "checked";
 }
 ?>
 <!DOCTYPE html>
@@ -28,19 +28,17 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['pass'])){
         <form class="login-form" action="../php/process.php" method="post">
             <i class="fas fa-user-circle"></i>
             <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
-            <input class="user-input" type="email" name="eMail" placeholder="Email" value="<?php echo $cokEmail?>"
-                required>
-            <input class="user-input" type="password" name="pass" placeholder="Password" value="<?php echo $cokPass ?>"
-                required>
+            <input class="user-input" type="email" name="eMail" placeholder="Email" value="<?php echo $cokEmail ?>" required>
+            <input class="user-input" type="password" name="pass" placeholder="Password" value="<?php echo $cokPass ?>" required>
             <div class="options-01">
-                <label class="remember-me"><input type="checkbox" name="remem" <?php echo $checked; ?> >Remember
+                <label class="remember-me"><input type="checkbox" name="remem" <?php echo $checked; ?>>Remember
                     me</label>
                 <a href="../html/forget_password.php">Forgot your password?</a>
             </div>
-            <?php if(isset($_GET['error'])){ ?>
-            <div class="error">
-                <p><?php echo $error= "メールアドレスまたはパスワードを間違っています。";?></p>
-            </div>
+            <?php if (isset($_GET['error'])) { ?>
+                <div class="error">
+                    <p><?php echo $error = "メールアドレスまたはパスワードを間違っています。"; ?></p>
+                </div>
             <?php } ?>
             <input class="btn" type="submit" name="log" value="LOGIN">
             <div class="options-02">
@@ -49,13 +47,16 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['pass'])){
         </form>
         <!--login form end-->
         <!--signup form start-->
-        <form class="signup-form" action="../php/process.php" method="post" id="form2">
+        <form class="signup-form" id="form2">
             <i class="fas fa-user-plus"></i>
             <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
-            <input class="user-input" type="text" name="userName" placeholder="Username" required>
-            <input class="user-input" type="email" name="regeMail" placeholder="Email Address" required>
-            <input class="user-input" type="password" name="regpass" placeholder="Password" required>
-            <input class="btn" type="submit" name="reg" value="SIGN UP">
+            <input class="user-input" type="text" name="userName" id="userName" placeholder="Registration ID" required>
+            <span id="userNameMsg"></span>
+            <input class="user-input" type="email" name="regeMail" id="regeMail" placeholder="Email Address" required>
+            <span id="emailMsg"></span>
+            <input class="user-input" type="password" name="regpass" id="regpass" placeholder="Password" required>
+            <span id="passMsg"></span>
+            <input class="btn" type="button" name="reg" id="regbtn" value="SIGN UP">
             <div class="options-02">
                 <p>Already Registered? <a href="#">Sign In</a></p>
             </div>
@@ -64,13 +65,14 @@ if(isset($_COOKIE['email']) && isset($_COOKIE['pass'])){
     </div>
     <!--form area end-->
 
+    <script src="../js/registration_validation.js"></script>
     <script type="text/javascript">
-    $('.options-02 a').click(function() {
-        $('form').animate({
-            height: "toggle",
-            opacity: "toggle"
-        }, "slow");
-    });
+        $('.options-02 a').click(function() {
+            $('form').animate({
+                height: "toggle",
+                opacity: "toggle"
+            }, "slow");
+        });
     </script>
 
 </body>
