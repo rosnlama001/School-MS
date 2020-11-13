@@ -9,8 +9,9 @@ $obj = new query();
 if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
     redirect("../../index.php");
 }else if(isset($_POST["status"]) && $_POST["status"]=="fetch"){
-            $num_rec_per_page = 5;
-            if (isset($_POST["page"])) {  $page  = $_POST["page"]; } else {  $page=1; };
+            $num_rec_per_page = 2;
+            $page  ='';
+            if (isset($_POST["page_no"])) {  $page  = $_POST["page_no"]; } else {  $page=1; };
             $start_from = ($page-1) * $num_rec_per_page;
      $condi_array = array("status" => "student");
      $row=$obj->get_join_data('user','studentpf','*','userId',$condi_array,'','',$start_from,$num_rec_per_page);

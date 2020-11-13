@@ -27,9 +27,9 @@ $("#myModalEdit #zipbtn").click(function(){
 // ------------------------------table load start--------------------------------------------//
 var page = 1;
 var current_page = 1;
-var total_page = 0;
+// var total_page = 0;
 var is_ajax_fire = 0;
-// manageData();
+manageData();
 /* manage data list */
 function manageData() {
     $.ajax({
@@ -39,30 +39,45 @@ function manageData() {
         data: {page:page,status:'fetch'},
         success:  function(data){
         // console.log(data);
-    	total_page = Math.ceil(data.total/10);
-    	current_page = page;
-    	$('#pagination').twbsPagination({
-	        totalPages: total_page,
-	        visiblePages: current_page,
-	        onPageClick: function (event, pageL) {
-	        	page = pageL;
-                if(is_ajax_fire != 0){
-	        	  getPageData();
+        total_page = Math.ceil(data.total/2);
+            var ancr="";
+            for(i=1;i<=total_page;i++){
+                // console.log(i);
+                if(current_page == i){  
+                 ancr+='<a href="#" class="pgnbtn active ">'+i+'</a>';
+                }else{
+                 ancr+='<a href="#" class="pgnbtn" >'+i+'</a>';   
                 }
-	        }
-	    });
-    	manageRow(data.data);
-        is_ajax_fire = 1;
+            }
+            $('#pagination').html(ancr);
+        
+            $(document).on('click','#pagination a',function(){
+                var id=$(this).text();
+                page = id;
+                current_page =id;
+                var page_no=$("#pagination a")
+                $(page_no).each(function(){
+                    var value= $(this).text();  
+                    if(value==id){
+                        $(this).addClass("active");
+                    }else{
+                        $(this).removeClass("active");
+                    }
+                })
+                getPageData()
+                // manageData();
+            });
+            manageRow(data.data); 
         }
     });
 }
-getPageData();
+// getPageData();
     /* Get Page Data*/
         function getPageData() {
             $.ajax({
                 dataType: 'json',
-                url:"../ajaxfile/studentAction.php?",
-                type:"POST",
+                url:"../ajaxfile/studentAction.php",
+                type:"post",
                 data:{page_no:page,status:'fetch'},
                 success:function(data){
                    manageRow(data.data);
@@ -94,7 +109,7 @@ getPageData();
             $("tbody").html(rows);
  }
 
-/* Update the table data form ajax start*/
+/* edit the table data form ajax start*/
 $(document).on('click','.tbl-edit',function(e){
     e.preventDefault();
     var id = $(this).attr("id");
@@ -124,7 +139,11 @@ $(document).on('click','.tbl-edit',function(e){
     });
     
 });
-/*update the table data ends*/
+/*edit the table data ends*/
+
+/*update table data starts */
+
+/*update table data ends */
 
 
     
