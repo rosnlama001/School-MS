@@ -34,7 +34,7 @@ function filter1(){
         // console.log(td);
         if(td){
             tdval=td.textContent || td.innerText;
-            console.log(tdval);
+            // console.log(tdval);
             if(tdval.toUpperCase().indexOf(value) > -1){
                 tr[i].style.display="";
             }else{
