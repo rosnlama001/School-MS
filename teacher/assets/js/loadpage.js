@@ -39,7 +39,11 @@ function manageData() {
         data: {page:page,status:'fetch'},
         success:  function(data){
         // console.log(data);
-        total_page = Math.ceil(data.total/2);
+        if(data.total > 10){
+            total_page = Math.ceil(data.total/10);
+        }else{
+            total_page = Math.floor(data.total/10);
+        }
             var ancr="";
             for(i=1;i<=total_page;i++){
                 // console.log(i);

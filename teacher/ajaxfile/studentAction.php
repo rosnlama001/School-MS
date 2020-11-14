@@ -9,7 +9,7 @@ $obj = new query();
 if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
     redirect("../../index.php");
 }else if(isset($_POST["status"]) && $_POST["status"]=="fetch"){
-            $num_rec_per_page = 2;
+            $num_rec_per_page = 10;
             $page  ='';
             if (isset($_POST["page_no"])) {  $page  = $_POST["page_no"]; } else {  $page=1; };
             $start_from = ($page-1) * $num_rec_per_page;
