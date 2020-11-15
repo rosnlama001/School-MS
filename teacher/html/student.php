@@ -286,7 +286,7 @@ $courseRow = $obj->get_data('course');
                 <div class="col-5">
                     <input type="submit" class="btn_success" value="Update" id="update_btn">
                 </div>
-                <div class="col-5"><input type="button" class="btn_danger " value="cancel"></div>
+                <div class="col-5"><input type="button" class="btn_danger" id="cancel" value="cancel"></div>
             </div>
             
         </div>
@@ -306,7 +306,7 @@ $courseRow = $obj->get_data('course');
                             <thead>
                                     <tr>
                                         <th>sn</th>
-                                        <th>username</th>
+                                        <th>FullName</th>
                                         <th>email</th>
                                         <th>phone</th>
                                         <th>address</th>

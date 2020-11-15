@@ -76,5 +76,14 @@ if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
             echo 0;
         }
 }
-
+else if(isset($_POST['status']) && $_POST['status']=='delete'){
+   echo  $userId = $_POST['userId'];
+   echo  $status = $_POST['status'];
+   $row = $obj->delete_data('studentpf','userId',$userId);
+   if(isset($row)){ 
+        echo 1;
+    }else{
+        echo 0;
+    }
+}
 ?>

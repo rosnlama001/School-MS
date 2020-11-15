@@ -38,7 +38,7 @@ function manageData() {
         type:"POST",
         data: {page:page,status:'fetch'},
         success:  function(data){
-        // console.log(data);
+        console.log(data);
         if(data.total > 10){
             total_page = Math.ceil(data.total/10);
         }else{
@@ -93,14 +93,14 @@ function manageData() {
             });
         } 
  //  manage row of table;
- function manageRow(data){
+ function manageRow(data,meta){
     //  console.log(data);
             var sn=1;
             var	rows = '';
                 $.each( data[0], function( key, value ) {
                     rows = rows + '<tr>';
                     rows = rows + '<td>'+sn+'</td>';
-                    rows = rows + '<td>'+value.userName+'</td>';
+                    rows = rows + '<td>'+value.lname+" "+value.fname+'</td>';
                     rows = rows + '<td>'+value.eMail+'</td>';
                     rows = rows + '<td>'+value.mobile+'</td>';
                     rows = rows + '<td>'+value.address+'</td>';
@@ -114,6 +114,7 @@ function manageData() {
                     sn++;
                 });
             $("tbody").html(rows);
+            $("tbody td").css("text-transform","capitalize");
  }
 
 /* edit the table data form ajax start*/
@@ -245,7 +246,32 @@ $("#update_btn").click(function(e){
 
 });
 /*update table data ends */
-
-
+    $("#cancel").click(function(){
+        $("#myModalEdit").fadeOut();
+        $("#myModalEdit").hide();
+    });
+/*delete the data from table */
+    $(document).on('click','.tbl-delete',function(e){
+        e.preventDefault();
+        var id = $(this).attr("id");
+        var c_obj = $(this).parents("tr");
+        if(confirm("Are you sure do you want to delete?")){
+            $.ajax({
+                url : "../ajaxfile/studentAction.php",
+                type :"post",
+                data: {userId:id,status:'delete'},
+                success:function(data){
+                    console.log(data);
+                    if(data !=1){
+                        c_obj.remove();
+                        alert("data deleted successfully");
+                        getPageData();
+                    }else{
+                        alert("data delete Unsuccessfully"); 
+                    }
+                }
+            });
+        }
+    });
     
 });
