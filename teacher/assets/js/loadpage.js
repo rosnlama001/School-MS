@@ -72,6 +72,9 @@ function manageData() {
                 // manageData();
             });
             manageRow(data.data); 
+            // console.log(data);
+            // manageRow(data.course); 
+            // $("tbody").html(data);
         }
     });
 }
@@ -89,7 +92,7 @@ function manageData() {
                 }
             });
         } 
- //  manage row 
+ //  manage row of table;
  function manageRow(data){
     //  console.log(data);
             var sn=1;
@@ -122,10 +125,12 @@ $(document).on('click','.tbl-edit',function(e){
         type :"post",
         data: {userId:id,status:'getData'},
         success:function(data){
-            var val=JSON.parse(data);
-            console.log(val.sex);
+            var val1=JSON.parse(data);
+            var val = val1.data;
+            $("#myModalEdit").fadeIn();
             $("#myModalEdit").css("display","flex");
             $("#myModalEdit #regno").val(val.regno);
+            $("#myModalEdit #userid").val(val.userId);
             $("#myModalEdit #lname").val(val.lname);
             $("#myModalEdit #fname").val(val.fname);
             $("#myModalEdit #zip").val(val.postcode);
@@ -139,6 +144,26 @@ $(document).on('click','.tbl-edit',function(e){
             }else{
              $("#myModalEdit #female").attr("checked",check); 
             }
+        // faculty selected
+               var fac = $("#myModalEdit #faculty");
+               var selected = "selected";
+               $.each(fac,function(){
+                    if(this.value==val.faculty){
+                        // console.log(this.value);
+                        $(this).attr("selected",selected);
+                    }  
+               });
+        // course selected
+                var cou = $("#myModalEdit #course");
+                var selected = "selected";
+                $.each(cou,function(){
+                    if(this.value==val.course){
+                        // console.log(this.value);
+                        $(this).attr("selected",selected);
+                    }  
+                });
+                
+    // ----------------------------  
         }
     });
     
@@ -146,7 +171,79 @@ $(document).on('click','.tbl-edit',function(e){
 /*edit the table data ends*/
 
 /*update table data starts */
+$("#update_btn").click(function(e){
+    e.preventDefault();
+        var id = $("#myModalEdit #userid").val();
+        var regno = $("#myModalEdit #regno").val();
+        var lname = $("#myModalEdit #lname").val();
+        var fname = $("#myModalEdit #fname").val();
+        var zip = $("#myModalEdit #zip").val();
+        var address1 = $("#myModalEdit #address1").val();
+        var address2 = $("#myModalEdit #address2").val();
+        var dob = $("#myModalEdit #dob").val();
+        var tel = $("#myModalEdit #tel").val();
+        var faculty = $("#myModalEdit #facultySelect option:selected").val();
+        var course = $("#myModalEdit #courseSelect option:selected").val();
+        var gender = $("#myModalEdit [name=Gender]:checked").val()
+        var selectedHobby = new Array();
+        $('#myModalEdit input[name=hobby]:checked').each(function() {
+            selectedHobby.push(this.value);
+            });
+        if( window.confirm("Following Data will be Submited "+"\n"+
+            "-------------------------"+"\n"+
+            "UserId :"+id+"\n"+
+            "RegisterNo :"+regno+"\n"+
+            "LastName :"+lname+"\n"+
+            "firstName :"+fname+"\n"+
+            "Postalcode :"+zip+"\n"+
+            "Address 1 :"+address1+"\n"+
+            "Address 2 :"+address2+"\n"+
+            "Date of birth :"+dob+"\n"+
+            "Tele phone :"+tel+"\n"+
+            "Faculty :"+faculty+"\n"+
+            "Course :"+course+"\n"+
+            "Gender :"+gender+"\n"+
+            "Hobby :"+selectedHobby+"\n"
+            
+            )){
+                $.ajax({
+                    // dataType: 'json',
+                    url:"../ajaxfile/studentAction.php",
+                    type:"post",
+                    data:{
+                        userId:id,
+                        regno:regno,
+                        lname: lname,
+                        fname: fname,
+                        zip:zip,
+                        address1: address1,
+                        address2: address2,
+                        dob: dob,
+                        tel: tel,
+                        faculty: faculty,
+                        course: course,
+                        gender: gender,
+                        hobby: selectedHobby,
+                        status:'update'},
+                    success:function(data){
+                        console.log(data);
+                        if(data==1){
+                            alert("data updated successfully");
+                              getPageData();
+                            $("#myModalEdit").fadeOut();
+                            $("#myModalEdit").hide();
+                        }else{
+                            alert("data update unsuccessfull");  
+                        }
+                    }
+                });               
+            }
+           
+              
+           
+            
 
+});
 /*update table data ends */
 
 
