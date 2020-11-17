@@ -71,7 +71,7 @@ if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
     );
     $row = $obj->update_data('studentpf',$condi_array,'userId',$userId);
     if(!isset($row)){ 
-        echo 1;
+            echo 1;
     }else{
             echo 0;
         }
