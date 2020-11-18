@@ -1,13 +1,8 @@
-// function msgreset() {
-//   $(this).on("input", function () {
-//     $("#" + msg).text("");
-//   })
-//   return;
-// }
 $("document").ready(function () {
   var username_state = false;
   var email_state = false;
   var pass_state = false;
+  // UserName Input Validation
   $("#userName").on("blur", function () {
     $(this).on("input", function () {
       $("#" + msg).text("");
@@ -44,6 +39,7 @@ $("document").ready(function () {
     });
   });
 
+  // Email Input Validation
   $("#regeMail").on("blur", function () {
     $(this).on("input", function () {
       $("#" + msg).text("");
@@ -80,6 +76,7 @@ $("document").ready(function () {
     });
   });
 
+  // Password Input Validation
   $("#regpass").on("blur", function () {
     $(this).on("input", function () {
       $("#" + msg).text("");
@@ -98,6 +95,8 @@ $("document").ready(function () {
       return;
     }
   });
+
+  // Form Submission
   $("#regbtn").on("click", function () {
     console.log("clicked")
     var status = $("#stat").val();

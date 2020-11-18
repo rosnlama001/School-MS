@@ -88,38 +88,7 @@ if (!$_POST) {
         );
         echo "saved";
     }
-}
-// else if (isset($_POST['reg'])) {
-//     $status = $obj1->get_safe_value($_POST['status']);
-//     $userName = $obj1->get_safe_value($_POST['userName']);
-//     $regeMail = $obj1->get_safe_value($_POST['regeMail']);
-//     $regpass = $obj1->get_safe_value($_POST['regpass']);
-//     $hashPass = password_hash($regpass, PASSWORD_DEFAULT);
-//     $date = get_date();
-//     $otp = get_otp(5);
-
-//     $condi_array = array("eMail" => "{$regeMail}");
-//     $row = $obj->get_data("user", "", $condi_array);
-//     if (isset($row[0])) {
-//         redirect("../../index.php?red=registered");
-//     } else {
-//         mb_language("uni");
-//         mb_internal_encoding("UTF-8");
-//         $subject = "OTP確認";
-//         $message = "OTPは" . $otp . "です。";
-//         $mailFrom = "From: ADMIN<admin@sms.com>\r\n";
-//         if (mb_send_mail($regeMail, $subject, $message, $mailFrom)) {
-//             $obj->insert_data(
-//                 "user",
-//                 "userName,eMail,pass,status,otp,regDate,otpDate",
-//                 "$userName,$regeMail,$hashPass,$status,$otp,$date,$date"
-//             );
-//             $msg = "メール確認のためOTPをメールで送信しました。";
-//             redirect("../html/otp.php");
-//         }
-//     }
-// } 
-else if (isset($_POST["sub"])) {
+} else if (isset($_POST["sub"])) {
     $otp = $obj1->get_safe_value($_POST["otp"]);
     $condi_array = array("otp" => "{$otp}");
     $row = $obj->get_data("user", "", $condi_array);
