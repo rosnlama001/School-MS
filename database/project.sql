@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2020 at 06:43 AM
+-- Generation Time: Nov 19, 2020 at 01:40 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -20,6 +20,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminpf`
+--
+
+CREATE TABLE `adminpf` (
+  `pfId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `sex` int(11) NOT NULL,
+  `birthday` int(11) NOT NULL,
+  `mobile` int(11) NOT NULL,
+  `postcode` int(11) NOT NULL,
+  `address` int(11) NOT NULL,
+  `nationality` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -75,16 +92,19 @@ INSERT INTO `country` (`conid`, `conname`) VALUES
 CREATE TABLE `course` (
   `cid` int(11) NOT NULL,
   `cname` varchar(50) NOT NULL,
-  `fid` int(11) NOT NULL
+  `fid` int(11) NOT NULL,
+  `userId` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`cid`, `cname`, `fid`) VALUES
-(1, 'ネットワーク', 1),
-(2, 'IoT', 1);
+INSERT INTO `course` (`cid`, `cname`, `fid`, `userId`) VALUES
+(1, 'ネットワーク', 1, 56),
+(2, 'IoT', 1, 0),
+(3, '日本語', 2, 0),
+(4, 'computer basic', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -151,21 +171,32 @@ CREATE TABLE `question` (
 
 CREATE TABLE `studentpf` (
   `pfId` int(11) NOT NULL,
-  `fullName` varchar(50) NOT NULL,
   `userId` int(11) NOT NULL,
+  `regno` varchar(50) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `fname` varchar(255) NOT NULL,
   `sex` varchar(20) NOT NULL,
   `birthdate` date NOT NULL,
-  `mobile` int(20) NOT NULL,
+  `mobile` varchar(20) NOT NULL,
   `postcode` int(20) NOT NULL,
   `address` varchar(100) NOT NULL,
+  `address1` varchar(255) NOT NULL,
   `nationality` varchar(50) NOT NULL,
   `image` longtext NOT NULL,
   `faculty` varchar(50) NOT NULL,
   `course` varchar(50) NOT NULL,
   `subject` varchar(255) NOT NULL,
-  `hobby` tinytext NOT NULL,
-  `regNo` int(11) NOT NULL
+  `hobby` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `studentpf`
+--
+
+INSERT INTO `studentpf` (`pfId`, `userId`, `regno`, `lname`, `fname`, `sex`, `birthdate`, `mobile`, `postcode`, `address`, `address1`, `nationality`, `image`, `faculty`, `course`, `subject`, `hobby`) VALUES
+(16, 56, '101', 'Rajbanshi', 'Deepak', 'male', '2020-11-17', '08090507030', 5330011, 'higashiyosogawashidaio', '3-3-2 daido building', 'nepali', '', '1', '1', '', ''),
+(17, 57, '102', 'Rajbanshi', 'Deepak1', 'male', '2020-11-17', '08090', 5330011, 'higashiyosogawashidaio', '3-3-2 daido building', 'nepali', '', '2', '3', '', ''),
+(18, 58, '103', 'Rajbanshi', 'Deepak2', 'male', '2020-11-17', '08090507030', 5330011, '大阪府大阪市東淀川区大桐', '3-3-2 daido building', 'nepali', '', '1', '3', '', '');
 
 -- --------------------------------------------------------
 
@@ -179,23 +210,6 @@ CREATE TABLE `subject` (
   `subname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `subject`
---
-
-INSERT INTO `subject` (`subid`, `cid`, `subname`) VALUES
-(1, 1, 'WebSystem'),
-(2, 2, 'WebSystem'),
-(3, 1, 'JavaScript'),
-(4, 2, 'JavaScript'),
-(5, 1, 'CSS'),
-(6, 2, 'CSS'),
-(7, 1, 'CCNA'),
-(8, 1, 'RUBY'),
-(9, 2, 'AI'),
-(10, 2, 'PYTHON'),
-(11, 2, 'Raspberry');
-
 -- --------------------------------------------------------
 
 --
@@ -204,10 +218,7 @@ INSERT INTO `subject` (`subid`, `cid`, `subname`) VALUES
 
 CREATE TABLE `teacherpf` (
   `pfId` int(11) NOT NULL,
-  `fullName` varchar(50) NOT NULL,
   `userId` int(11) NOT NULL,
-  `nationality` varchar(20) NOT NULL,
-  `postcode` int(20) NOT NULL,
   `address` varchar(50) NOT NULL,
   `birthdate` date NOT NULL,
   `course` varchar(20) NOT NULL,
@@ -215,17 +226,19 @@ CREATE TABLE `teacherpf` (
   `hobby` text NOT NULL,
   `image` longtext NOT NULL,
   `mobile` int(20) NOT NULL,
+  `postcode` int(20) NOT NULL,
   `sex` varchar(10) NOT NULL,
   `subject` varchar(100) NOT NULL,
-  `skill` text NOT NULL
+  `skill` text NOT NULL,
+  `nationality` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teacherpf`
 --
 
-INSERT INTO `teacherpf` (`pfId`, `fullName`, `userId`, `nationality`, `postcode`, `address`, `birthdate`, `course`, `faculty`, `hobby`, `image`, `mobile`, `sex`, `subject`, `skill`) VALUES
-(1, '', 2, '', 5400022, '', '2015-05-13', '1', '', '', '', 902345698, '男性', '', '');
+INSERT INTO `teacherpf` (`pfId`, `userId`, `address`, `birthdate`, `course`, `faculty`, `hobby`, `image`, `mobile`, `postcode`, `sex`, `subject`, `skill`, `nationality`) VALUES
+(1, 2, '', '2015-05-13', '1', '', '', '', 902345698, 5400022, '男性', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -251,10 +264,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `userName`, `eMail`, `pass`, `status`, `otp`, `regDate`, `otpDate`, `flag`) VALUES
 (14, 'admin', 'admin@sms.com', '$2y$10$E7X16/eE7tGPrVyPNUy.SOMitQBGOyWNgbPWxmWoiXu4taThS.8Ii', 'admin', '', '2020-10-23 09:49:07', '0000-00-00 00:00:00', 0),
-(51, 'otera', 'otera@sms.com', '$2y$10$06iZ94W5nqKdsaBvevNtTeQEtP25Gg9aru8hTzdMRVHuAxeC9.BDa', 'teacher', '', '2020-10-25 05:07:23', '0000-00-00 00:00:00', 0),
-(52, 'deep', 'deep@sms.com', '$2y$10$nga/iBHvHiNmvN.uyO6L7OP0ZAzFf3iDy2zSRfK.rxJBi/6tlykzO', 'teacher', '', '2020-10-26 02:48:03', '0000-00-00 00:00:00', 0),
-(55, 'asd', 'asdf@s', '$2y$10$WOHJnPSJExVkXolOfp.taOv2l1rs7d1XDMyQK3qu.HDWNDj/PfnhW', 'teacher', '59366', '2020-11-01 07:27:59', '2020-11-01 07:27:59', 0),
-(56, 'rosh', 'rosh@sms.com', '$2y$10$UKg9jGegaV05zpXTYSXvAupLnWMq6YjZDUU3s7TeyE6dGjrFtKGQe', 'teacher', '', '2020-11-02 09:14:48', '0000-00-00 00:00:00', 0);
+(53, 'Teacher', 'deepakrajbanshi68@gmail.com', '$2y$10$ifK1SApZel5Hlt1kr7DAU.qPdyLKel.rAwBcv9bKYoBzbNMUPeHoe', 'teacher', '', '2020-10-29 12:49:23', '0000-00-00 00:00:00', 0),
+(56, 'student', 'student@sms.com', '$2y$10$78cv9u5ELBNdNxE4QNck5OWa/v.bZlCPaHNoYxcujM0Z8AaddcdCS', 'student', '', '2020-11-04 05:10:20', '0000-00-00 00:00:00', 0),
+(57, 'student1', 'student2@sms.com', '$2y$10$ViO90RX13Zv9wnjPSwgWnOqleCQLoFB/GkI2NQy91cBNl5NWhnIki', 'student', '', '2020-11-04 05:23:09', '0000-00-00 00:00:00', 0),
+(58, 'student2', 'yamada@kadai.com', 'adf', 'student', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0);
 
 --
 -- Indexes for dumped tables
@@ -358,7 +371,7 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `examcat`
@@ -388,13 +401,13 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for table `studentpf`
 --
 ALTER TABLE `studentpf`
-  MODIFY `pfId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pfId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `subid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `teacherpf`
@@ -406,7 +419,7 @@ ALTER TABLE `teacherpf`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
