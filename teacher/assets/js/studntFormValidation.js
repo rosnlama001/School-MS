@@ -112,7 +112,7 @@ $("document").ready(function () {
             clearMsg("#tel")
         } else if (!mobPattr.test(tel)) {
             errors[11] = $("#telMsg").text("電話番号は数字のみにする必要があります。");
-            clearMsg("#zip")
+            clearMsg("#tel")
         }
         if (!$(".sexGroup").is(":checked")) {
             errors[12] = $("#sexMsg").attr("class", "danger").text("性別は空白にしないでください。")
@@ -137,7 +137,7 @@ $("document").ready(function () {
         }
         // console.log(errors)
         if (errors == "") {
-            $("#addForm").submit();
+            $("#addForm").serializeArray();
             alert("form submited")
             console.log("OK")
         } else {
