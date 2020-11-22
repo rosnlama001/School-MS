@@ -33,11 +33,7 @@ class query extends Database
     // }
     // }
     // -------------------------
-<<<<<<< HEAD
-    public function  get_data($table, $field = "", $condition = "", $order_by_field = "", $order_updown = "",$limitofset = "",$limit = "")
-=======
     public function  get_data($table, $field = "", $condition = "", $order_by_field = "", $order_updown = "", $limitofset = "", $limit = "")
->>>>>>> e4dd95330868abd383b8e1e88562ded2fa43a725
     {
         $sql = "select * from $table ";
         if ($field != "") {
@@ -188,9 +184,9 @@ class query extends Database
 }
 
 // to use this all object and its classes functi0ons
-$obj=new query();
+// $obj=new query();
 // $obj->try();
-$condi_array = array("userName"=>"deepak");
+// $condi_array = array("userName"=>"deepak");
 // $obj->insert_data("user","userName,eMail,pass","deepak,deepakrajbanshi68@gmail.com,deepak2");
 // $obj->delete_data("user","userId","4");
 // $obj->update_data("user",$condi_array,"userId","4");

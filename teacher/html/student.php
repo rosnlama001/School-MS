@@ -319,101 +319,7 @@ $courseRow = $obj->get_data('course');
 
         </div>
         <!-- The Modal of Edit student end-->
-        <div class="panel-body">
-            <div style='overflow-x:auto;'>
-                <table id='mytbl'>
-                    <thead>
-                        <tr>
-                            <th>sn</th>
-                            <th>FullName</th>
-                            <th>email</th>
-                            <th>phone</th>
-                            <th>address</th>
-                            <th>Faculty</th>
-                            <th>Course</th>
-                            <th>action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <div class='pagenition' id="pagination">
-
-                </div>
-            </div>
-<<<<<<< HEAD
-            <div class="form_check">
-                    <label for="address">Gender</label>
-                    <div class="form_radio">
-                        <input type="radio" name="Gender" id="male" value="male" disabled>
-                        <label for="male">Male</label>
-                        <input type="radio" name="Gender" id="female" value="female" disabled>
-                        <label for="female">female</label>
-                    </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label for="">Faculty</label>
-                    <select name="" id="facultySelect">
-                        <option value="">select Faculty</option>
-                        <?php if(isset($facultyRow[0])){
-                            for($i=0;$i<count($facultyRow);$i++){
-                                ?>
-                                 <option id="faculty" value="<?php echo $facultyRow[$i]['fname'] ?>">
-                                 <?php echo $facultyRow[$i]['fname'] ?></option>
-                                <?php
-                            }
-                         } ?>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label for="">Course</label>
-                    <select name="faculty" id="courseSelect">
-                        <option value="">select course</option>
-                        <?php if(isset($courseRow[0])){
-                            for($i=0;$i<count($courseRow);$i++){
-                                ?>
-                                 <option id="course" value="<?php echo $courseRow[$i]['cname'] ?>">
-                                 <?php echo $courseRow[$i]['cname'] ?></option>
-                                <?php
-                            }
-                         } ?>
-                    </select>
-                </div>
-            </div>
-            <div class="form_check">
-                    <label for="address">Hobby</label>
-                    <div class="form_radio">
-                        <input type="checkbox" name="hobby" value="sports" >
-                        <label for="PHP">Sports</label>
-                        <input type="checkbox" name="hobby" value="music" >
-                        <label for="HTML">Music</label>
-                        <input type="checkbox" name="hobby" value="reading&writing" >
-                        <label for="CSS">Reading & writting</label>
-                        <input type="checkbox" name="hobby" value="Other" >
-                        <label for="JAVA">other</label>
-                    </div>
-            </div>
-            <div class="row">
-                <div class="col-5">
-                    <input type="submit" class="btn_success" value="Update" id="update_btn">
-                </div>
-                <div class="col-5"><input type="button" class="btn_danger" id="cancel" value="cancel"></div>
-            </div>
-            
-        </div>
-
-    </div>
         
-    
-</form>
-
-</div>
-
-</div>
-<!-- The Modal of Edit student end-->
             <div class="panel-body">
                     <div style='overflow-x:auto;'>
                             <table id='mytbl'>
@@ -439,8 +345,3 @@ $courseRow = $obj->get_data('course');
     </div>
 </div>
 <script src="../assets/js/studntFormValidation.js"></script>
-=======
-        </div>
-    </div>
-</div>
->>>>>>> e4dd95330868abd383b8e1e88562ded2fa43a725
