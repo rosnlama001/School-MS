@@ -93,7 +93,7 @@ function manageData() {
             });
         } 
  //  manage row of table;
- function manageRow(data,meta){
+ function manageRow(data){
     //  console.log(data);
             var sn=1;
             var	rows = '';
@@ -101,14 +101,14 @@ function manageData() {
                     rows = rows + '<tr>';
                     rows = rows + '<td>'+sn+'</td>';
                     rows = rows + '<td>'+value.lname+" "+value.fname+'</td>';
-                    rows = rows + '<td>'+value.eMail+'</td>';
+                    // rows = rows + '<td>'+value.eMail+'</td>';
                     rows = rows + '<td>'+value.mobile+'</td>';
                     rows = rows + '<td>'+value.address+'</td>';
                     rows = rows + '<td>'+value.faculty+'</td>';
                     rows = rows + '<td>'+value.course+'</td>';
                     rows = rows + '<td>';
-                    rows = rows + "<a href='#' class='tbl-edit smBtn' id='"+value.userId+"'>Edit</a>";
-                    rows = rows + "<a href='#' class='tbl-delete smBtn-d' id='"+value.userId+"'>Delete</a>";
+                    rows = rows + "<a href='#' class='tbl-edit smBtn' id='"+value.pfId+"'>Edit</a>";
+                    rows = rows + "<a href='#' class='tbl-delete smBtn-d' id='"+value.pfId+"'>Delete</a>";
                     rows = rows + '</td>';
                     rows = rows + '</tr>';
                     sn++;
@@ -131,7 +131,7 @@ $(document).on('click','.tbl-edit',function(e){
             $("#myModalEdit").fadeIn();
             $("#myModalEdit").css("display","flex");
             $("#myModalEdit #regno").val(val.regno);
-            $("#myModalEdit #userid").val(val.userId);
+            $("#myModalEdit #userid").val(val.pfId);
             $("#myModalEdit #lname").val(val.lname);
             $("#myModalEdit #fname").val(val.fname);
             $("#myModalEdit #zip").val(val.postcode);
@@ -205,7 +205,6 @@ $("#update_btn").click(function(e){
             "Course :"+course+"\n"+
             "Gender :"+gender+"\n"+
             "Hobby :"+selectedHobby+"\n"
-            
             )){
                 $.ajax({
                     // dataType: 'json',

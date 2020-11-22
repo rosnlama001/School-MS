@@ -14,32 +14,35 @@ if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
             if (isset($_POST["page_no"])) {  $page  = $_POST["page_no"]; } else {  $page=1; };
             $start_from = ($page-1) * $num_rec_per_page;
      $condi_array = array("status" => "student");
-     $row=$obj->get_join_data('user','studentpf','*','userId',$condi_array,'','',$start_from,$num_rec_per_page);
+     $row=$obj->get_data("studentpf","*","","","",$start_from,$num_rec_per_page);
+    //  die($row);
+    //  $row=$obj->get_join_data('user','studentpf','*','userId',$condi_array,'','',$start_from,$num_rec_per_page);
             if(isset($row[0])){   
-            $json[]=$row; 
-            $data['data'] = $json;
+                    $json[]=$row; 
+                    $data['data'] = $json;
 
-            $row1=$obj->get_data('studentpf');
-            $result = count($row1);
-            $data['total'] = $result;
+                    $row1=$obj->get_data('studentpf');
+                    $result = count($row1);
+                    $data['total'] = $result;
 
-            $row2=$obj->get_data('faculty');
-            $json1[]=$row2;
-            $data['faculty'] = $json1;
+                    $row2=$obj->get_data('faculty');
+                    $json1[]=$row2;
+                    $data['faculty'] = $json1;
 
-            $row3=$obj->get_data('course');
-            $json2[]=$row3;
-            $data['course'] = $json2;
-            
-            echo json_encode($data);
+                    $row3=$obj->get_data('course');
+                    $json2[]=$row3;
+                    $data['course'] = $json2;
+                    
+                    echo json_encode($data);
             }else{
             echo "<strong style='color:crimson' >No data Found for students</strong>";
             }
 }else if(isset($_POST['status']) && $_POST['status']=='getData'){
      $userId = $_POST['userId'];
      $status = $_POST['status'];
-    $condi_array = array("user.userId" => "{$userId}");
-    $row = $obj->get_join_data('user','studentpf','','userId',$condi_array);
+    $condi_array = array("pfId" => "{$userId}");
+    $row=$obj->get_data("studentpf","*",$condi_array);
+    // $row = $obj->get_join_data('user','studentpf','','userId',$condi_array);
     if(isset($row[0])){ 
         $data['data']=$row[0];
         echo json_encode($data);
@@ -69,7 +72,7 @@ if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
         "faculty" => "{$faculty}",
         "course" => "{$course}",
     );
-    $row = $obj->update_data('studentpf',$condi_array,'userId',$userId);
+    $row = $obj->update_data('studentpf',$condi_array,'pfId',$userId);
     if(!isset($row)){ 
             echo 1;
     }else{
@@ -77,13 +80,18 @@ if(isset($_SESSION['Islogin']) && isset($_SESSION['Islogin'])!='yes'){
         }
 }
 else if(isset($_POST['status']) && $_POST['status']=='delete'){
-   echo  $userId = $_POST['userId'];
-   echo  $status = $_POST['status'];
-   $row = $obj->delete_data('studentpf','userId',$userId);
+   $userId = $_POST['userId'];
+   $status = $_POST['status'];
+   $row = $obj->delete_data('studentpf','pfId',$userId);
    if(isset($row)){ 
         echo 1;
     }else{
         echo 0;
     }
 }
+else if(isset($_POST['status']) && $_POST['status']=='insert'){
+    echo  $userId = $_POST['userId'];
+    echo  $status = $_POST['status'];
+    
+ }
 ?>

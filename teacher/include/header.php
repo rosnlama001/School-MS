@@ -44,8 +44,8 @@ if(!isset($_SESSION['Islogin'])){
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
-        <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-        <a href="facultyncourse.php"><i class="fas fa-cogs"></i><span>Course & Faculty</span></a>
+        <a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+        <a href="courseNfaculty.php"><i class="fas fa-cogs"></i><span>Course & Faculty</span></a>
         <?php if(isset($_SESSION['status']) && $_SESSION['status'] !='teacher' ){ ?>
         <a href="teachers.php"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
         <a href="#"><i class="fas fa-clipboard"></i><span>All Attendence</span></a>
@@ -66,21 +66,21 @@ if(!isset($_SESSION['Islogin'])){
         <img src="../assets/images/1.png" class="profile_image" alt="">
         <h4><?php if(isset($_SESSION['userName'])){echo $_SESSION['userName']; }?></h4>
       </div>
-      <a href="home.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-      <a href="facultyncourse.php"><i class="fas fa-cogs"></i><span>Course & Faculty</span></a>
+      <a href="dashboard.php"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <a href="courseNfaculty.php"><i class="fas fa-cogs"></i><span>Course & Faculty</span></a>
        <?php if(isset($_SESSION['status']) && $_SESSION['status'] !='teacher' ){ ?>
-        <a href="teachers.php"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
-        <a href="#"><i class="fas fa-clipboard"></i><span>All Attendence</span></a>
+        <a href="teacher.php"><i class="fas fa-chalkboard-teacher"></i><span>Teacher</span></a>
+        <a href="Allattendance.php"><i class="fas fa-clipboard"></i><span>All Attendence</span></a>
         <?php } ?>
       <a href="students.php" id="student"><i class="fas fa-user-graduate"></i><span>Student</span></a>
       <a href="exam.php"><i class="fas fa-book"></i><span>Exam</span></a>
-      <a href="#"><i class="fas fa-poll"></i><span>Result</span></a>
+      <a href="result.php"><i class="fas fa-poll"></i><span>Result</span></a>
       <?php if(isset($_SESSION['status']) && $_SESSION['status'] !='admin' ){ ?>
-      <a href="attendence.php"><i class="fas fa-user"></i><span>Attendance</span></a>
+      <a href="attendance.php"><i class="fas fa-user"></i><span>Attendance</span></a>
       <?php } ?>
-      <a href="#"><i class="fas fa-yen-sign"></i><span>Fee Mangement</span></a>
-      <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
-      <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
+      <a href="feemanage.php"><i class="fas fa-yen-sign"></i><span>Fee Mangement</span></a>
+      <a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="settings.php"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
     </div>
     <!--sidebar end-->
 

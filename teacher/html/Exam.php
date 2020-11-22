@@ -15,11 +15,11 @@ $courseRow = $obj->get_data('course');
         <div class="panel-head">
         <div class="search_bar">
             <label for="search"><i class="fas fa-search-plus"></i></label>
-            <input type="search" name="" id="search" placeholder="search by names" oninput="filter()">
+            <input type="search" name="" id="search" placeholder="search by Exam Name" oninput="filter()">
         </div> 
-            <h3>Student Details</h3>
+            <h3>Exam  Details</h3>
             <div class="line">
-            <button class="addbtn" id="myBtn"><i class="fas fa-plus"></i> Add Student</button>
+            <button class="addbtn" id="myBtn"><i class="fas fa-plus"></i> Add Exam Category</button>
             </div>
         </div>
         <!-- The Modal of exam category -->

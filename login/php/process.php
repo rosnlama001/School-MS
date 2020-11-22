@@ -34,9 +34,9 @@ if (!$_POST) {
             }
             // end rem
             if (($row[0]['status'] == "teacher" && $row[0]['status'] == $urlstatus) || ($row[0]['status'] == "admin"  && $row[0]['status'] == $urlstatus)) {
-                redirect("../../teacher/php/home.php");
+                redirect("../../teacher/php/dashboard.php");
             } else if ($row[0]['status'] == "student" && $row[0]['status'] == $urlstatus) {
-                redirect("../../student/php/home.php");
+                redirect("../../student/php/dashboard.php");
             } else {
                 redirect("../../index.php?red=illegal");
             }

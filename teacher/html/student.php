@@ -41,6 +41,7 @@ $courseRow = $obj->get_data('course');
                                         </div>
                                         
                             </div>
+                            <span id="lnameMsg"></span>
                             <div class="row">
                                 <div class="col-5">
                                 <label for="lname">Last Name</label>
@@ -245,7 +246,7 @@ $courseRow = $obj->get_data('course');
                         <?php if(isset($facultyRow[0])){
                             for($i=0;$i<count($facultyRow);$i++){
                                 ?>
-                                 <option id="faculty" value="<?php echo $facultyRow[$i]['fid'] ?>">
+                                 <option id="faculty" value="<?php echo $facultyRow[$i]['fname'] ?>">
                                  <?php echo $facultyRow[$i]['fname'] ?></option>
                                 <?php
                             }
@@ -261,7 +262,7 @@ $courseRow = $obj->get_data('course');
                         <?php if(isset($courseRow[0])){
                             for($i=0;$i<count($courseRow);$i++){
                                 ?>
-                                 <option id="course" value="<?php echo $courseRow[$i]['cid'] ?>">
+                                 <option id="course" value="<?php echo $courseRow[$i]['cname'] ?>">
                                  <?php echo $courseRow[$i]['cname'] ?></option>
                                 <?php
                             }
@@ -307,7 +308,6 @@ $courseRow = $obj->get_data('course');
                                     <tr>
                                         <th>sn</th>
                                         <th>FullName</th>
-                                        <th>email</th>
                                         <th>phone</th>
                                         <th>address</th>
                                         <th>Faculty</th>
@@ -325,3 +325,4 @@ $courseRow = $obj->get_data('course');
             </div>
     </div>
 </div>
+<script src="../assets/js/studntFormValidation.js"></script>
