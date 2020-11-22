@@ -33,7 +33,7 @@ class query extends Database
     // }
     // }
     // -------------------------
-    public function  get_data($table, $field = "", $condition = "", $order_by_field = "", $order_updown = "",$limitofset="",$limit="")
+    public function  get_data($table, $field = "", $condition = "", $order_by_field = "", $order_updown = "", $limitofset = "", $limit = "")
     {
         $sql = "select * from $table ";
         if ($field != "") {
@@ -54,7 +54,7 @@ class query extends Database
         if ($order_by_field != "" && $order_updown != "") {
             $sql .= " order by {$order_by_field} {$order_updown} ";
         }
-        if ($limitofset !="" && $limit !="") {
+        if ($limitofset != "" && $limit != "") {
             $sql .= " limit  {$limitofset},{$limit} ";
         }
         //  die($sql);
@@ -138,7 +138,7 @@ class query extends Database
         //     echo "Something Error in Deleting  data";
         // }
     }
-    public function  get_join_data($table1,$table2, $field = "", $condition1 = "", $condition2 = "", $order_by_field = "", $order_updown = "",$limitofset="",$limit="")
+    public function  get_join_data($table1, $table2, $field = "", $condition1 = "", $condition2 = "", $order_by_field = "", $order_updown = "", $limitofset = "", $limit = "")
     {
         $sql = "select * from $table1,$table2 ";
         if ($field != "") {
@@ -149,7 +149,7 @@ class query extends Database
             if ($condition2 != "") {
                 $sql .= " and ";
                 $count = count($condition2);
-            $i = 0;
+                $i = 0;
                 foreach ($condition2 as $key => $value) {
                     $sql .= " {$key} ='{$value}' ";
                     $i++;
@@ -162,7 +162,7 @@ class query extends Database
         if ($order_by_field != "" && $order_updown != "") {
             $sql .= " order by {$order_by_field} {$order_updown} ";
         }
-        if (($limitofset !="" || $limitofset == 0) && $limit !="") {
+        if (($limitofset != "" || $limitofset == 0) && $limit != "") {
             $sql .= " limit  {$limitofset},{$limit} ";
         }
         //  die($sql);

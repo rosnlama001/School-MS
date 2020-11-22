@@ -9,9 +9,7 @@ $obj = new query();
 if (isset($_POST["data_fetch"])) {
     // $condi_array = array("eMail" => "{$email}");
     $row = $obj->get_data("faculty", "fid, fname");
-    $row1 = $obj->get_data("course", "cid, cname, fid");
     $arry['faculty'] = $row;
-    // $arry['course'] = $row1;
 
     if (isset($row[0])) {
         // header("Content-Disposition:attachment;filename='jsonfile'");
@@ -21,12 +19,12 @@ if (isset($_POST["data_fetch"])) {
 }
 if (isset($_POST["select_val"])) {
     $val = $_POST["select_val"];
-    $condi_array = array("fid" => "{$val}");
-    $row1 = $obj->get_data("course", "cid, cname", $condi_array);
-    $arry['course'] = $row1;
-    // $arry['course'] = $row1;
-
-    if (isset($row1[0])) {
-        echo json_encode($arry);
+    $condi_array = array("fname" => $val);
+    $row1 = $obj->get_data("faculty", "fid", $condi_array);
+    $condi_array2 = array("fid" => $row1[0]["fid"]);
+    $row2 = $obj->get_data("course", "cid, cname", $condi_array2);
+    $arry1['course'] = $row2;
+    if (isset($row2[0])) {
+        echo json_encode($arry1);
     }
 }
