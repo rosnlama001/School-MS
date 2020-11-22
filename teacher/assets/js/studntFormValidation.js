@@ -13,20 +13,19 @@ $("document").ready(function () {
     // Fillter for course and faculty field
     // Data Fetch
     $.ajax({
-        url: "studentphp.php",
+        url: "../ajaxfile/fetchFacultyCourse.php",
         type: "post",
         data: { data_fetch: 1 },
         success: function (response) {
             var result = $.parseJSON(response);
             var i = 0;
-            // var z = 0
             // console.log(result)
             $.each(result.faculty, function () {
                 // console.log(faculty[i].fname);
                 // $("#faculty").append("<option>").text(faculty[i].fname);
                 $("#faculty").append($('<option>', {
-                    value: result.faculty[i].fid,
-                    text: result.faculty[i].fname
+                    value: result.faculty[i].fname,
+                    text: result.faculty[i].fname,
                 }));
                 i++;
             });
@@ -36,7 +35,7 @@ $("document").ready(function () {
     $("#faculty").on("change", function () {
         var select_val = $(this).val();
         $.ajax({
-            url: "studentphp.php",
+            url: "../ajaxfile/fetchFacultyCourse.php",
             type: "post",
             data: { select_val: select_val },
             success: function (response) {
@@ -46,7 +45,7 @@ $("document").ready(function () {
                 // console.log(result)
                 $.each(result.course, function () {
                     $("#course").append($('<option>', {
-                        value: result.course[i].cid,
+                        value: result.course[i].cname,
                         text: result.course[i].cname
                     }));
                     i++;
@@ -54,7 +53,6 @@ $("document").ready(function () {
             },
         });
     });
-
 
     // Form validation Start
     $("#subtn").on("click", function () {
@@ -96,8 +94,9 @@ $("document").ready(function () {
         if (blnkinput("#address1")) {
             errors[7] = $("#addr1Msg").attr("class", "danger").text("住所は空白にしないでください。")
             clearMsg("#address1")
-        } else if ($("#address1").val()) {
-            $("#addr1Msg").text("");
+            if ($("#address1").val() != "") {
+                $("#addr1Msg").text("");
+            }
         }
         if (blnkinput("#address2")) {
             errors[8] = $("#addr2Msg").attr("class", "danger").text("住所は空白にしないでください。")
@@ -114,9 +113,9 @@ $("document").ready(function () {
             errors[11] = $("#telMsg").text("電話番号は数字のみにする必要があります。");
             clearMsg("#tel")
         }
-        if (!$(".sexGroup").is(":checked")) {
+        if (!$('input[name="Gender"]').is(":checked")) {
             errors[12] = $("#sexMsg").attr("class", "danger").text("性別は空白にしないでください。")
-            $(".sexGroup").on("input", function () {
+            $('input[name="Gender"]').on("input", function () {
                 $("#sexMsg").text("");
             })
         }
@@ -128,20 +127,49 @@ $("document").ready(function () {
             errors[14] = $("#courseMsg").attr("class", "danger").text("コース名は空白にしないでください。")
             clearMsg("#course")
         }
-        if (!$(".hob").is(":checked")) {
+        if (!$('input[name="hobby"]').is(":checked")) {
             // if ($(".hob:checked").val() == null) {
             errors[15] = $("#hobbyMsg").attr("class", "danger").text("趣味は空白にしないでください。")
-            $(".hob").on("input", function () {
+            $('input[name="hobby"]').on("input", function () {
                 $("#hobbyMsg").text("");
             })
         }
         // console.log(errors)
         if (errors == "") {
-            $("#addForm").serializeArray();
-            alert("form submited")
-            console.log("OK")
+            //This is where you're gonna store your form fields
+            var fields = {};
+            // Making all anme and value in a serial Array
+            var x = $("#addForm").serializeArray()
+            // console.log(x)
+            $.each(x, function (i, field) {
+                //Get values, even from multiple-selects
+                if (Array.isArray(fields[field.name])) {
+                    fields[field.name].push(field.value);
+                } else if (typeof fields[field.name] !== 'undefined') {
+                    var val = fields[field.name];
+                    fields[field.name] = new Array();
+                    fields[field.name].push(val);
+                    fields[field.name].push(field.value);
+                } else {
+                    fields[field.name] = field.value;
+                }
+            })
+            var json = JSON.stringify(fields)
+            // console.log(json)
+            $.ajax({
+                url: "../ajaxfile/studentAction.php",
+                type: "post",
+                data: { status: "insert", json: json },
+                success: function (response) {
+                    console.log(response)
+                },
+                // error: function (response) {
+                //     alert("Error! I won't tell you what it is.But, I'll give you a clue: 21");
+                //     console.log(response)
+                // }
+            })
         } else {
-            $("#lastMsg").attr("class", "danger").text("まず、すべてのエラーを解決して下さい。").show("slow").fadeOut(3000)
+            $("#lastMsg").attr("class", "danger").text("まず、すべてのエラーを解決して下さい。").show("slow").fadeOut(4000)
             // setTimeout(() => {
             //     $("#lastMsg").text("")
             // }, 5000);

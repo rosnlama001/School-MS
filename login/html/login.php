@@ -52,7 +52,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
             <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
             <input class="user-input" type="text" name="userName" id="userName" placeholder="Registration ID" required>
             <span id="userNameMsg"></span>
-            <input class="user-input" type="email" name="regeMail" id="regeMail" placeholder="Email Address" required>
+            <input class="user-input" type="email" name="regeMail" id="regeMail" placeholder="tarou@sms.com" required>
             <span id="emailMsg"></span>
             <input class="user-input" type="password" name="regpass" id="regpass" placeholder="Password" required>
             <span id="passMsg"></span>
