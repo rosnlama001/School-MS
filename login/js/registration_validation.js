@@ -128,6 +128,9 @@ $("document").ready(function () {
           email: email,
           pass: pass,
         },
+        beforeSend: function () {
+          $("#regbtn").attr("disabled", true).prop("value", "Please Wait")
+        },
         success: function (response) {
           $("#regbtn").val("SIGN UP");
           $("#regbtn").attr('disabled',false);

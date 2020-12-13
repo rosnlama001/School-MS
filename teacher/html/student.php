@@ -31,32 +31,32 @@ $obj = new query();
                     <h4>Student Details</h4>
                     <span class="close">&times;</span>
                 </div>
-                <form id="addForm">
+                <form id="addForm" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="cont_nr">
                             <div class="row">
                                 <div class="col">
-                                    <label for="lname">Register No:</label>
-                                    <input type="text" name="regno" id="regno" placeholder="Enter Register number" value="adsf">
+                                    <label for="regno">Register No:</label>
+                                    <input type="text" name="regno" id="regno" placeholder="Enter Register number" value="">
                                     <span id="regnoMsg"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-5">
                                     <label for="lname">Last Name</label>
-                                    <input type="text" name="lname" id="lname" placeholder="Enter Your Last Name" value="adsf">
+                                    <input type="text" name="lname" id="lname" placeholder="Enter Your Last Name" value="">
                                     <span id="lnameMsg"></span>
                                 </div>
                                 <div class="col-5">
                                     <label for="fname">First Name</label>
-                                    <input type="text" name="fname" id="fname" placeholder="Enter Your First Name" value="adsf">
+                                    <input type="text" name="fname" id="fname" placeholder="Enter Your First Name" value="">
                                     <span id="fnameMsg"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-5">
                                     <div class="col">
-                                        <label for="nation">Faculty</label>
+                                        <label for="nation">Nationality</label>
                                         <select name="nation" id="nation">
                                             <option value="">Select Nationality</option>
                                         </select>
@@ -64,15 +64,15 @@ $obj = new query();
                                     </div>
                                 </div>
                                 <div class="col-5">
-                                    <label for="img">Profile Image</label>
-                                    <input type="file" name="file" id="file" placeholder="Profile Image">
-                                    <span id="imgMsg"></span>
+                                    <label for="dp">Profile Image</label>
+                                    <input type="file" name="dp" id="dp" placeholder="Profile Image">
+                                    <span id="dpMsg"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-5">
                                     <label for="zip">Postal Code</label>
-                                    <input type="text" name="zip" id="zip" placeholder="5330011" value="5440002">
+                                    <input type="text" name="zip" id="zip" placeholder="5330011" value="">
                                     <span class="msg danger" id="zipMsg"></span>
                                 </div>
                                 <div class="col-5">
@@ -82,40 +82,40 @@ $obj = new query();
                             <div class="row">
                                 <div class="col">
                                     <label for="address1">Address1</label>
-                                    <input type="text" name="address1" id="address1" placeholder="大阪市東淀川区大桐" value="adsf">
+                                    <input type="text" name="address1" id="address1" placeholder="大阪市東淀川区大桐" value="">
                                     <span id="addr1Msg"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="address2">Address2</label>
-                                    <input type="text" name="address2" id="address2" placeholder="５－１４－８７ダイドーファイブ　４０３号" value="adsf">
+                                    <input type="text" name="address2" id="address2" placeholder="５－１４－８７ダイドーファイブ　４０３号" value="">
                                     <span id="addr2Msg"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="dob">Date of Birth</label>
-                                    <input type="date" name="dob" id="dob" value="2020/12/23">
+                                    <input type="date" name="dob" id="dob" value="">
                                     <span id="dobMsg"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="tel">Mobile</label>
-                                    <input type="tel" name="tel" id="tel" value="123456789">
+                                    <input type="tel" name="tel" id="tel" value="">
                                     <span id="telMsg"></span>
                                 </div>
                             </div>
                             <div class="form_check">
                                 <label for="address">Gender</label>
                                 <div class="form_radio">
-                                    <input type="radio" name="Gender" value="male">
+                                    <input type="radio" name="Gender" id="male" value="male">
                                     <label for="male">Male</label>
-                                    <input type="radio" name="Gender" value="female">
+                                    <input type="radio" name="Gender" id="female" value="female">
                                     <label for="female">female</label>
-                                    <input type="radio" name="Gender" value="sexother">
-                                    <label for="other">Other</label>
+                                    <input type="radio" name="Gender" id="sexother" value="sexother">
+                                    <label for="sexother">Other</label>
                                 </div>
                                 <span id="sexMsg"></span>
                             </div>
@@ -140,13 +140,13 @@ $obj = new query();
                             <div class="form_check">
                                 <label for="address">Hobby</label>
                                 <div class="form_radio">
-                                    <input type="checkbox" name="hobby" value="Sports">
+                                    <input type="checkbox" name="hobby[]" value="Sports">
                                     <label for="sports">Sports</label>
-                                    <input type="checkbox" name="hobby" value="Music">
+                                    <input type="checkbox" name="hobby[]" value="Music">
                                     <label for="music">Music</label>
-                                    <input type="checkbox" name="hobby" value="Reading and Writing">
+                                    <input type="checkbox" name="hobby[]" value="Reading and Writing">
                                     <label for="rw">Reading & writting</label>
-                                    <input type="checkbox" name="hobby" value="Others">
+                                    <input type="checkbox" name="hobby[]" value="Others">
                                     <label for="others">other</label>
                                 </div>
                                 <span id="hobbyMsg"></span>
@@ -154,9 +154,9 @@ $obj = new query();
                             <div class="row"><span id="lastMsg" style="width:100%"></span></div>
                             <div class="row">
                                 <div class="col-5">
-                                    <input type="button" class="btn_success" id="subtn" value="Submit">
+                                    <input type="submit" class="btn_success" id="subtn" value="Submit">
                                 </div>
-                                <div class="col-5"><input type="button" class="btn_danger " value="cancel"></div>
+                                <div class="col-5"><input type="button" class="btn_danger" id="canclebtn" value="cancel"></div>
                             </div>
 
                         </div>
@@ -170,6 +170,7 @@ $obj = new query();
 
         </div>
         <!-- The Modal of add student end-->
+        <!-- ############################################################################################# -->
         <!-- The Modal of edit students -->
         <div id="myModalEdit" class="modal">
 
@@ -179,20 +180,18 @@ $obj = new query();
                     <h4>Update Student Details</h4>
                     <span class="close">&times;</span>
                 </div>
-                <form action="#" method="post" id="addForm">
+                <form id="addFormEdit" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="cont_nr">
 
                             <div class="row">
                                 <div class="col">
-                                    <label for="lname">Register No:</label>
-                                    <input type="text" name="regno" id="regno" placeholder="Enter Register number" disabled>
+                                    <label for="regno">Register No:</label>
+                                    <input type="text" name="regno" id="regno" placeholder="Enter Register number">
                                     <span id="regnoMsg"></span>
                                     <input type="hidden" name="userid" id="userid" placeholder="Enter user number">
                                 </div>
-
                             </div>
-                            <span id="lnameMsg"></span>
                             <div class="row">
                                 <div class="col-5">
                                     <label for="lname">Last Name</label>
@@ -203,6 +202,22 @@ $obj = new query();
                                     <label for="fname">First Name</label>
                                     <input type="text" name="fname" id="fname" placeholder="Enter Your First Name">
                                     <span id="fnameMsg"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="col">
+                                        <label for="nation">Nationality</label>
+                                        <select name="nation" id="nation">
+                                            <option value="">Select Nationality</option>
+                                        </select>
+                                        <span id="nationMsg"></span>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <label for="dp">Profile Image</label>
+                                    <input type="file" name="dp" id="dp" placeholder="Profile Image">
+                                    <span id="dpMsg"></span>
                                 </div>
                             </div>
                             <div class="row">
@@ -232,7 +247,7 @@ $obj = new query();
                             <div class="row">
                                 <div class="col">
                                     <label for="dob">Date of Birth</label>
-                                    <input type="date" data-date-format="DD MMMM YYYY" value="0000-00-00" name="dob" id="dob" disabled>
+                                    <input type="date" data-date-format="DD MMMM YYYY" value="0000-00-00" name="dob" id="dob">
                                     <span id="dobMsg"></span>
                                 </div>
                             </div>
@@ -246,18 +261,21 @@ $obj = new query();
                             <div class="form_check">
                                 <label for="address">Gender</label>
                                 <div class="form_radio">
-                                    <input type="radio" name="Gender" id="male" value="male" disabled>
+                                    <input type="radio" name="Gender" id="male" value="male">
                                     <label for="male">Male</label>
-                                    <input type="radio" name="Gender" id="female" value="female" disabled>
+                                    <input type="radio" name="Gender" id="female" value="female">
                                     <label for="female">female</label>
+                                    <input type="radio" name="Gender" id="sexother" value="sexother">
+                                    <label for="sexother">Other</label>
                                 </div>
                                 <span id="sexMsg"></span>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="">Faculty</label>
-                                    <select name="" id="facultySelect">
+                                    <select name="faculty" id="faculty">
                                         <option value="">select Faculty</option>
+<<<<<<< HEAD
                                         <?php if (isset($facultyRow[0])) {
                                             for ($i = 0; $i < count($facultyRow); $i++) {
                                         ?>
@@ -266,6 +284,8 @@ $obj = new query();
                                         <?php
                                             }
                                         } ?>
+=======
+>>>>>>> eb927cdc7a624f4ec5280d035fd84ca4dfe59bfd
                                     </select>
                                     <span id="facultyMsg"></span>
                                 </div>
@@ -273,16 +293,8 @@ $obj = new query();
                             <div class="row">
                                 <div class="col">
                                     <label for="">Course</label>
-                                    <select name="faculty" id="courseSelect">
+                                    <select name="course" id="course">
                                         <option value="">select course</option>
-                                        <?php if (isset($courseRow[0])) {
-                                            for ($i = 0; $i < count($courseRow); $i++) {
-                                        ?>
-                                                <option id="course" value="<?php echo $courseRow[$i]['cname'] ?>">
-                                                    <?php echo $courseRow[$i]['cname'] ?></option>
-                                        <?php
-                                            }
-                                        } ?>
                                     </select>
                                     <span id="courseMsg"></span>
                                 </div>
@@ -290,17 +302,18 @@ $obj = new query();
                             <div class="form_check">
                                 <label for="address">Hobby</label>
                                 <div class="form_radio">
-                                    <input type="checkbox" name="hobby" value="sports">
-                                    <label for="PHP">Sports</label>
-                                    <input type="checkbox" name="hobby" value="music">
-                                    <label for="HTML">Music</label>
-                                    <input type="checkbox" name="hobby" value="reading&writing">
-                                    <label for="CSS">Reading & writting</label>
-                                    <input type="checkbox" name="hobby" value="Other">
-                                    <label for="JAVA">other</label>
+                                    <input type="checkbox" name="hobby" id="sports" value="sports">
+                                    <label for="sports">Sports</label>
+                                    <input type="checkbox" name="hobby" id="music" value="music">
+                                    <label for="music">Music</label>
+                                    <input type="checkbox" name="hobby" id="rw" value="reading and writing">
+                                    <label for="rw">Reading & writting</label>
+                                    <input type="checkbox" name="hobby" id="others" value="others">
+                                    <label for="others">other</label>
                                 </div>
                                 <span id="hobbyMsg"></span>
                             </div>
+                            <div class="row"><span id="lastMsg" style="width:100%"></span></div>
                             <div class="row">
                                 <div class="col-5">
                                     <input type="submit" class="btn_success" value="Update" id="update_btn">
@@ -343,6 +356,7 @@ $obj = new query();
                             </div>
                      </div>
             </div>
+        </div>
     </div>
 </div>
 <!-- <script src="../assets/js/studntFormValidation.js"></script> -->

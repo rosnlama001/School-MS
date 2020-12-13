@@ -1,15 +1,4 @@
 $("document").ready(function () {
-    function blnkinput(mark) {
-        var blk = $(mark).val() == "";
-        return blk;
-    }
-    function clearMsg(mark) {
-        var fun = $(mark).on("input", function () {
-            $(this).next().text("");
-        })
-        return fun;
-    }
-
     // Fillter for course and faculty field
     // Data Fetch
     $.ajax({
@@ -18,16 +7,35 @@ $("document").ready(function () {
         data: { data_fetch: 1 },
         success: function (response) {
             var result = $.parseJSON(response);
-            var i = 0;
+            var i = z = x = y = 0;
             // console.log(result)
             $.each(result.faculty, function () {
-                // console.log(faculty[i].fname);
-                // $("#faculty").append("<option>").text(faculty[i].fname);
                 $("#faculty").append($('<option>', {
                     value: result.faculty[i].fname,
                     text: result.faculty[i].fname,
                 }));
                 i++;
+            });
+            $.each(result.nation, function () {
+                $("#nation").append($('<option>', {
+                    value: result.nation[z].conname,
+                    text: result.nation[z].conname,
+                }));
+                z++;
+            });
+            $.each(result.faculty, function () {
+                $("#myModalEdit #faculty").append($('<option>', {
+                    value: result.faculty[x].fname,
+                    text: result.faculty[x].fname,
+                }));
+                x++;
+            });
+            $.each(result.nation, function () {
+                $("#myModalEdit #nation").append($('<option>', {
+                    value: result.nation[y].conname,
+                    text: result.nation[y].conname,
+                }));
+                y++;
             });
         },
     });
@@ -42,7 +50,7 @@ $("document").ready(function () {
                 $("#course option:not(:first)").remove();
                 var result = $.parseJSON(response);
                 var i = 0;
-                // console.log(result)
+                // console.log(course)
                 $.each(result.course, function () {
                     $("#course").append($('<option>', {
                         value: result.course[i].cname,
