@@ -21,8 +21,6 @@ $("document").ready(function () {
             var i = 0;
             // console.log(result)
             $.each(result.faculty, function () {
-                // console.log(faculty[i].fname);
-                // $("#faculty").append("<option>").text(faculty[i].fname);
                 $("#faculty").append($('<option>', {
                     value: result.faculty[i].fname,
                     text: result.faculty[i].fname,
@@ -163,10 +161,6 @@ $("document").ready(function () {
                 success: function (response) {
                     console.log(response)
                 },
-                // error: function (response) {
-                //     alert("Error! I won't tell you what it is.But, I'll give you a clue: 21");
-                //     console.log(response)
-                // }
             })
         } else {
             $("#lastMsg").attr("class", "danger").text("まず、すべてのエラーを解決して下さい。").show("slow").fadeOut(4000)
