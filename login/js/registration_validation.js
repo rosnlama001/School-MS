@@ -124,6 +124,9 @@ $("document").ready(function () {
           email: email,
           pass: pass,
         },
+        beforeSend: function () {
+          $("#regbtn").attr("disabled", true).prop("value", "Please Wait")
+        },
         success: function (response) {
           if (response == "saved") {
             $(location).attr("href", "../html/otp.php");

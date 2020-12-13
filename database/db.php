@@ -93,11 +93,40 @@ class query extends Database
 
         // die($sql);
         $result = $this->conn()->query($sql);
+        return $result;
         // if($result==true){
         //     echo "Data  successfully Inserted";
         // }else{
         //     echo "Something Error in Inserting  data";
         // }
+    }
+    public function  insert2_data($table, $condi_array = "")
+    {
+        $sql = "insert into $table (";
+        if ($condi_array != "") {
+            $count = count($condi_array);
+            $i = 0;
+            foreach ($condi_array as $key => $value) {
+                $i++;
+                $sql .= $key;
+                if ($i < $count) {
+                    $sql .= ",";
+                }
+            }
+            $sql .= ") values (";
+            $j = 0;
+            foreach ($condi_array as $key => $value) {
+                $j++;
+                $sql .= "'" . $value . "'";
+                if ($j < $count) {
+                    $sql .= ",";
+                }
+            }
+            $sql .= ")";
+        }
+
+        // die($sql);
+        return $result = $this->conn()->query($sql);
     }
     public function  update_data($table, $condition = "", $whereFiled = "", $wherethis = "")
     {

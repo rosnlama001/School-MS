@@ -49,7 +49,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
         <!--signup form start-->
         <form class="signup-form" id="form2">
             <i class="fas fa-user-plus"></i>
-            <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
+            <input class="user-input" type="hidden" name="status" id="stat" value="<?php echo $_GET['status'] ?>">
             <input class="user-input" type="text" name="userName" id="userName" placeholder="Registration ID" required>
             <span id="userNameMsg"></span>
             <input class="user-input" type="email" name="regeMail" id="regeMail" placeholder="tarou@sms.com" required>
