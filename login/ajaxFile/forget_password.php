@@ -57,7 +57,7 @@ if(isset($_POST['femail'])){
         } else {
             $condi_array = array("otp" => "", "otpDate" => "");
             $row = $obj->update_data("user", $condi_array, "otp", $otp);
-            redirect("../../index.php?red=otpTimeOut");
+            echo $status="timeOut";
         }  
     }else{
         echo $status = "確認を間違っています。";

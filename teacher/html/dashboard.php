@@ -2,6 +2,9 @@
 // session_start();
 include("../../database/db.php");
 include("../../functions/function.php");
+if(!isset($_SESSION['Islogin'])){
+    redirect("../../index.php");
+}
 // query object ----------------------
 $obj1 = new sfunction();
 $obj = new query();
@@ -10,38 +13,59 @@ $facultyRow = $obj->get_data('faculty');
 $courseRow = $obj->get_data('course');
 // print_r($courseRow);
 ?>
-<div class="panel">
-    <div class="panel-row">
-        <div class="panel-head">
-        <div class="search_bar">
-            <label for="search"><i class="fas fa-search-plus"></i></label>
-            <input type="search" name="" id="search" placeholder="search by Faculty names" oninput="filter()">
-        </div> 
-            <h3> Dashboard </h3>
-            <div class="line">
-            <button class="addbtn" id="myBtn"><i class="fas fa-plus"></i> Add Faculty</button>
-            </div>
-        </div>
-        
-            <div class="panel-body">
-                    <div style='overflow-x:auto;'>
-                            <table id='mytbl'>
-                            <thead>
-                                    <tr>
-                                        <th>sn</th>
-                                        <th>Faculty Name</th>
-                                        <th>Total Course</th>
-                                        <th>Status</th>
-                                        <th>action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                            <div class='pagenition' id="pagination">
-                            
-                            </div>
-                     </div>
-            </div>
+<!--  -->
+<div class="cont_nr" style="background-color: #201b26;background-color:rgba(0,0,0.3,black);color:#fff">
+    <div class="row">
+        <h3>Dashboard</h3>
     </div>
 </div>
+<hr>
+<div class=".cont_nr">
+  <div class="row" style="margin-bottom:50px">
+        <div class="col-3">
+        <a href="students.php" style="color:black"> 
+             <div class="card">
+                <img src="../images/student.png" alt="Avatar" style="width:100%; heigh:50%">
+                <div class="container">
+                    <h4><b>Student Details</b></h4>
+                    <p>You can see all the student details</p>
+                </div>
+            </div>
+        </a>
+        </div>
+        <div class="col-3">
+           <a href="attendance.php" style="color:black"> 
+            <div class="card">
+                <img src="../images/attendance.png" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>Attendance Details</b></h4>
+                    <p>Manage your student attendance</p>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-3">
+        <a href="teacher.php" style="color:black"> 
+            <div class="card">
+                <img src="../images/teacher.png" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>Teacher Details</b></h4>
+                    <p>you can see all the teacher details</p>
+                </div>
+            </div>
+        </a>
+        </div>
+        <div class="col-3">
+        <a href="feemanage.php" style="color:black"> 
+            <div class="card">
+                <img src="../images/feemanage.png" alt="Avatar" style="width:100%">
+                <div class="container">
+                    <h4><b>Fee Details</b></h4>
+                    <p>By clicking manage Fee Details</p>
+                </div>
+            </div>
+        </a>
+        </div>
+  </div>
+  <!--  -->
+  

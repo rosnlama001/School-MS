@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(isset($_SESSION['Islogin']) && $_SESSION['Islogin']= "yes" && $_SESSION["status"]){
+    echo $_SESSION["status"];
+    if($_SESSION["status"]=='teacher' || $_SESSION["status"]=='admin' ){
+       header("location:teacher/php/dashboard.php");
+    }else{
+       header("location:student/php/home.php");
+    }  
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

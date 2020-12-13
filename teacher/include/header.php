@@ -53,7 +53,7 @@ if(!isset($_SESSION['Islogin'])){
         <a href="students.php" id="student"><i class="fas fa-user-graduate"></i><span>Student</span></a>
         <a href="exam.php"><i class="fas fa-book"></i><span>Exam</span></a>
         <a href="#"><i class="fas fa-poll"></i><span>Result</span></a>
-        <a href="attendence.php"><i class="fas fa-user"></i><span>Attendance</span></a>
+        <a href="faculty_atten.php"><i class="fas fa-user"></i><span>Attendance</span></a>
         <a href="#"><i class="fas fa-yen-sign"></i><span>Fee Mangement</span></a>
         <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
         <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['Islogin'])){
       <a href="exam.php"><i class="fas fa-book"></i><span>Exam</span></a>
       <a href="result.php"><i class="fas fa-poll"></i><span>Result</span></a>
       <?php if(isset($_SESSION['status']) && $_SESSION['status'] !='admin' ){ ?>
-      <a href="attendance.php"><i class="fas fa-user"></i><span>Attendance</span></a>
+      <a href="faculty_atten.php"><i class="fas fa-user"></i><span>Attendance</span></a>
       <?php } ?>
       <a href="feemanage.php"><i class="fas fa-yen-sign"></i><span>Fee Mangement</span></a>
       <a href="about.php"><i class="fas fa-info-circle"></i><span>About</span></a>

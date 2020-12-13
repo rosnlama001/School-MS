@@ -1,3 +1,4 @@
+  
 $(document).ready(()=>{
 /*postal code js start */
 $("#myModalEdit #zipbtn").click(function(){
@@ -35,14 +36,16 @@ function manageData() {
     $.ajax({
         dataType: 'json',
         url: "../ajaxfile/studentAction.php",
-        type:"POST",
-        data: {page:page,status:'fetch'},
+        type:"post",
+        data: {status:'fetch'},
         success:  function(data){
         console.log(data);
-        if(data.total > 10){
-            total_page = Math.ceil(data.total/10);
-        }else{
-            total_page = Math.floor(data.total/10);
+        var per_page=7;
+        if(data.total > per_page){
+            total_page = Math.ceil(data.total/per_page);
+        }
+        else{
+            total_page = Math.floor(data.total/per_page);
         }
             var ancr="";
             for(i=1;i<=total_page;i++){
@@ -69,12 +72,10 @@ function manageData() {
                     }
                 })
                 getPageData()
-                // manageData();
+               
             });
             manageRow(data.data); 
-            // console.log(data);
-            // manageRow(data.course); 
-            // $("tbody").html(data);
+        
         }
     });
 }
@@ -100,6 +101,7 @@ function manageData() {
                 $.each( data[0], function( key, value ) {
                     rows = rows + '<tr>';
                     rows = rows + '<td>'+sn+'</td>';
+                    rows = rows + '<td><img src="../assets/uploads/'+value.image+'" width="40px" height="30px" alt="DP"></img></td>';
                     rows = rows + '<td>'+value.lname+" "+value.fname+'</td>';
                     // rows = rows + '<td>'+value.eMail+'</td>';
                     rows = rows + '<td>'+value.mobile+'</td>';
@@ -271,6 +273,9 @@ $("#update_btn").click(function(e){
                 }
             });
         }
+    });
+    $("#canclebtn").click(()=>{
+       $("#myModal").hide();
     });
     
 });

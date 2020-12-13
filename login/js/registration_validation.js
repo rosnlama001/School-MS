@@ -109,10 +109,14 @@ $("document").ready(function () {
       pass_state == false
     ) {
       console.log("finish all");
+      return false;
+      
     } else {
       console.log(status);
       console.log(email);
       console.log(pass);
+      $("#regbtn").val("please wait...");
+      $("#regbtn").attr('disabled',true);
       // proceed with form submission
       $.ajax({
         url: "../php/process.php",
@@ -125,8 +129,13 @@ $("document").ready(function () {
           pass: pass,
         },
         success: function (response) {
+          $("#regbtn").val("SIGN UP");
+          $("#regbtn").attr('disabled',false);
           if (response == "saved") {
             $(location).attr("href", "../html/otp.php");
+          }else{
+            alert("sorry something went wrong ......")
+            return false;
           }
         },
       });

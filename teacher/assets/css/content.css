@@ -15,6 +15,7 @@
     }
     a{
       text-decoration: none;
+      color: greenyellow;
     }
     #back i{
       padding: 5px 5px 5px 10px;
@@ -50,6 +51,7 @@
     }
   .panel-row{
     /* border: 2px solid red; */
+    width: auto;
     display: flex;
     flex-direction: column;
     margin: 2px;
@@ -121,6 +123,12 @@
     margin-bottom: 10px;
     /* border-radius: 20px; */
   }
+  table a{
+    color: rgb(20, 34, 53);
+  }
+  table a:hover{
+    color: rgb(209, 98, 47);
+  }
   th {
     text-align: left;
     padding: 15px 10px;
@@ -158,9 +166,10 @@
     margin: 2% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    /* transition: all 0.5s linear; */
+    width: 75%; /* Could be more or less, depending on screen size */
+    transition: all 0.8s ease-out;
     border: 1px solid rgba(0,0,0,0.8);
+    overflow-y: auto;
   }
   .close {
     color: rgb(10, 10, 10);
@@ -279,6 +288,14 @@
     width: 100%;
     /* border: 1px solid green; */
     margin-top: 5px;
+}
+.col-3{
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  margin: 5px 10px;
+  /* border: 1px solid red; */
+  width: 30%;
 }
  .col-5{
     display: flex;

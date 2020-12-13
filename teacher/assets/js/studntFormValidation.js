@@ -161,8 +161,13 @@ $("document").ready(function () {
                 type: "post",
                 data: { status: "insert", json: json },
                 success: function (response) {
-                    console.log(response)
-                },
+                    if(response == '1'){
+                        window.location.href="www.youtube.com";
+                    }else{
+                        return false;
+                    }
+                    
+                }
                 // error: function (response) {
                 //     alert("Error! I won't tell you what it is.But, I'll give you a clue: 21");
                 //     console.log(response)

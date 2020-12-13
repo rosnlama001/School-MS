@@ -17,6 +17,7 @@ window.addEventListener("load",()=>{
         let email=emailField.value;
         let emailError=document.getElementById("femailError");
         let emailError1=document.getElementById("femailError1");
+        emailError.innerHTML="please wait...";
         if(email==""){
             emailError.innerHTML="<b style='green'>Filed should not be empty!!</b>";
         }else{
@@ -66,6 +67,8 @@ window.addEventListener("load",()=>{
                         success:function(data){
                             if(data=="true"){
                                 window.location.href="../html/change_password.php";
+                            }else if(data == "timeOut"){
+                                window.location.href="../../index.php?red=otpTimeOut";
                             } else{
                                 // console.log("no email matchedd");
                                 emailError1.innerHTML=data;

@@ -3,6 +3,8 @@
 
   // Get the button that opens the modal
   var btn = document.getElementById("myBtn");
+  // // Get the cancel that close the modal
+  // var calcel = document.getElementById("cancel");
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
@@ -15,8 +17,11 @@
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
+    modal.style.transition = "all 0.8s ease-out;";
     modal.style.display = "none";
+    
   }
+  
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {

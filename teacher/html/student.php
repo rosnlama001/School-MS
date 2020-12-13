@@ -6,8 +6,8 @@ include("../../functions/function.php");
 $obj1 = new sfunction();
 $obj = new query();
 // query object end--------------
-$facultyRow = $obj->get_data('faculty');
-$courseRow = $obj->get_data('course');
+// $facultyRow = $obj->get_data('faculty');
+// $courseRow = $obj->get_data('course');
 // print_r($courseRow);
 ?>
 <div class="panel">
@@ -261,7 +261,7 @@ $courseRow = $obj->get_data('course');
                                         <?php if (isset($facultyRow[0])) {
                                             for ($i = 0; $i < count($facultyRow); $i++) {
                                         ?>
-                                                <option id="faculty" value="<?php echo $facultyRow[$i]['fid'] ?>">
+                                                <option id="faculty" value="<?php echo $facultyRow[$i]['fname'] ?>">
                                                     <?php echo $facultyRow[$i]['fname'] ?></option>
                                         <?php
                                             }
@@ -278,7 +278,7 @@ $courseRow = $obj->get_data('course');
                                         <?php if (isset($courseRow[0])) {
                                             for ($i = 0; $i < count($courseRow); $i++) {
                                         ?>
-                                                <option id="course" value="<?php echo $courseRow[$i]['cid'] ?>">
+                                                <option id="course" value="<?php echo $courseRow[$i]['cname'] ?>">
                                                     <?php echo $courseRow[$i]['cname'] ?></option>
                                         <?php
                                             }
@@ -326,6 +326,7 @@ $courseRow = $obj->get_data('course');
                             <thead>
                                     <tr>
                                         <th>sn</th>
+                                        <th>Images</th>
                                         <th>FullName</th>
                                         <th>phone</th>
                                         <th>address</th>
@@ -344,4 +345,4 @@ $courseRow = $obj->get_data('course');
             </div>
     </div>
 </div>
-<script src="../assets/js/studntFormValidation.js"></script>
+<!-- <script src="../assets/js/studntFormValidation.js"></script> -->

@@ -55,7 +55,7 @@ class query extends Database
             $sql .= " order by {$order_by_field} {$order_updown} ";
         }
         if ($limitofset != "" && $limit != "") {
-            $sql .= " limit  {$limitofset},{$limit} ";
+            $sql .= " limit {$limitofset},{$limit} ";
         }
         //  die($sql);
         $result = $this->conn()->query($sql);
@@ -139,15 +139,17 @@ class query extends Database
         //     echo "Something Error in Deleting  data";
         // }
     }
-    public function  get_join_data($table1, $table2, $field = "", $condition1 = "", $condition2 = "", $order_by_field = "", $order_updown = "", $limitofset = "", $limit = "")
+    public function  get_join_data($table1, $table2, $field = "", $condition1 = "", $condition2 = "", $order_by_field = "", $order_updown = "", $limitofset = "", $limit = "",$condition3 = "")
     {
         $sql = "select * from $table1,$table2 ";
         if ($field != "") {
             $sql = "select {$field} from {$table1},{$table2}";
         }
-        if ($condition1 != "") {
+        if ($condition1 != "" && $condition2 == "" && $condition3 == "" ) {
             $sql .= " where $table1.$condition1 = $table2.$condition1 ";
-            if ($condition2 != "") {
+        }
+        if ($condition1 != "" && $condition2 != "" && $condition3 == "") {
+            $sql .= " where $table1.$condition1 = $table2.$condition1 ";
                 $sql .= " and ";
                 $count = count($condition2);
                 $i = 0;
@@ -159,7 +161,24 @@ class query extends Database
                     }
                 }
             }
+        if ($condition1 != "" && $condition3 != "" && $condition2 == "") {
+                $sql .= " where $table1.$condition1 = $table2.$condition3 ";
+            }
+        if ($condition1 != "" && $condition3 != "" && $condition2 != "") {
+            $sql .= " where $table1.$condition1 = $table2.$condition3 ";
+            $sql .= " and ";
+                $count = count($condition2);
+                $i = 0;
+                foreach ($condition2 as $key => $value) {
+                    $sql .= " {$key} ='{$value}' ";
+                    $i++;
+                    if ($i < $count) {
+                        $sql .= " and ";
+                    }
+                }
         }
+        
+        
         if ($order_by_field != "" && $order_updown != "") {
             $sql .= " order by {$order_by_field} {$order_updown} ";
         }
@@ -185,6 +204,9 @@ class query extends Database
 
 // to use this all object and its classes functi0ons
 // $obj=new query();
+// $start='0';
+// $end=10;
+// $obj->get_data('studentpf','*','','','',$start,$end);
 // $obj->try();
 // $condi_array = array("userName"=>"deepak");
 // $obj->insert_data("user","userName,eMail,pass","deepak,deepakrajbanshi68@gmail.com,deepak2");

@@ -1,12 +1,36 @@
 <?php
-$cokEmail = "";
-$cokPass = "";
-$checked = "";
-if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
-    $cokEmail = $_COOKIE['email'];
-    $cokPass = $_COOKIE['pass'];
-    $checked = "checked";
+session_start();
+ $cokEmail = "";
+ $checked = "";
+
+ if(isset($_SESSION['Islogin']) && $_SESSION['Islogin']= "yes" && $_SESSION["status"]){
+     echo $_SESSION["status"];
+     if($_SESSION["status"]=='teacher' || $_SESSION["status"]=='admin' ){
+        header("location:../../teacher/php/dashboard.php");
+     }else{
+        header("location:../../student/php/home.php");
+     }  
+ }
+if(isset($_GET['status'])){
+    if($_GET['status']=='teacher'){ 
+        if (isset($_COOKIE['temail'])) {
+            $cokEmail = $_COOKIE['temail'];
+            $checked = "checked";
+        }
+    }else if($_GET['status']=='student'){ 
+        if (isset($_COOKIE['semail'])) {
+            $cokEmail = $_COOKIE['semail'];
+            $checked = "checked";
+        }
+    }else if($_GET['status']=='admin'){ 
+        if (isset($_COOKIE['aemail'])) {
+            $cokEmail = $_COOKIE['aemail'];
+            $checked = "checked";
+        }
+    }
+    
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -29,7 +53,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
             <i class="fas fa-user-circle"></i>
             <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
             <input class="user-input" type="email" name="eMail" placeholder="Email" value="<?php echo $cokEmail ?>" required>
-            <input class="user-input" type="password" name="pass" placeholder="Password" value="<?php echo $cokPass ?>" required>
+            <input class="user-input" type="password" name="pass" placeholder="Password" value="" required>
             <div class="options-01">
                 <label class="remember-me"><input type="checkbox" name="remem" <?php echo $checked; ?>>Remember
                     me</label>
@@ -49,7 +73,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
         <!--signup form start-->
         <form class="signup-form" id="form2">
             <i class="fas fa-user-plus"></i>
-            <input class="user-input" type="hidden" name="status" value="<?php echo $_GET['status'] ?>">
+            <input class="user-input" type="hidden" name="status" id="stat" value="<?php echo $_GET['status'] ?>">
             <input class="user-input" type="text" name="userName" id="userName" placeholder="Registration ID" required>
             <span id="userNameMsg"></span>
             <input class="user-input" type="email" name="regeMail" id="regeMail" placeholder="tarou@sms.com" required>
